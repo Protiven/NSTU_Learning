@@ -1,0 +1,7 @@
+C:\Users\Марина\source\repos\Компьютерные сети\Лаба2\Client\Client\bin\Debug\Client.exe.config
+C:\Users\Марина\source\repos\Компьютерные сети\Лаба2\Client\Client\bin\Debug\Client.exe
+C:\Users\Марина\source\repos\Компьютерные сети\Лаба2\Client\Client\bin\Debug\Client.pdb
+C:\Users\Марина\source\repos\Компьютерные сети\Лаба2\Client\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\Марина\source\repos\Компьютерные сети\Лаба2\Client\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\Марина\source\repos\Компьютерные сети\Лаба2\Client\Client\obj\Debug\Client.exe
+C:\Users\Марина\source\repos\Компьютерные сети\Лаба2\Client\Client\obj\Debug\Client.pdb

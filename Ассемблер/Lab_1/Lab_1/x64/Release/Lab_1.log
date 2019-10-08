@@ -1,0 +1,5 @@
+﻿  Assembling Source.asm...
+Source.asm(1): error A2008: syntax error : .
+Source.asm(2): error A2008: syntax error : .
+Source.asm(5): fatal error A1000: cannot open file : /masm32/include/windows.inc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\BuildCustomizations\masm.targets(70,5): error MSB3721: выход из команды "ml64.exe /c /nologo /Zi /Fo"x64\Release\Source.obj" /W3 /errorReport:prompt  /TaSource.asm" с кодом "1".

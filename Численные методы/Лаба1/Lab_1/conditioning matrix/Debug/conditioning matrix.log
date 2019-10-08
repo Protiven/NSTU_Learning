@@ -1,0 +1,9 @@
+﻿  conditioning matrix.cpp
+C:\Users\Марина\source\repos\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(78,14): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Марина\source\repos\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(94,24): warning C4244:  +=: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\Марина\source\repos\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(94,24): warning C4244:         with
+C:\Users\Марина\source\repos\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(94,24): warning C4244:         [
+C:\Users\Марина\source\repos\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(94,24): warning C4244:             _Ty=int
+C:\Users\Марина\source\repos\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(94,24): warning C4244:         ]
+C:\Users\Марина\source\repos\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(53): warning C4715:  index_di: значение возвращается не при всех путях выполнения
+  conditioning matrix.vcxproj -> C:\Users\Марина\source\repos\Численные методы\Лаба1\Lab_1\Debug\conditioning matrix.exe

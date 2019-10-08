@@ -1,0 +1,12 @@
+﻿  Lab_1_up.cpp
+C:\Users\Марина\source\repos\Informatika_2\Lab_1_up\Lab_1_up.cpp(35,9): warning C4244:  =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Марина\source\repos\Informatika_2\Lab_1_up\Lab_1_up.cpp(16,6): warning C4101:  result: неиспользованная локальная переменная
+C:\Users\Марина\source\repos\Informatika_2\Lab_1_up\Lab_1_up.cpp(133,15): warning C4473:  "scanf_s": передано недостаточно аргументов для строки формата
+C:\Users\Марина\source\repos\Informatika_2\Lab_1_up\Lab_1_up.cpp(133,15): message :  заполнители и их параметры ожидают переменное число аргументов в количестве 2, но было предоставлено 1
+C:\Users\Марина\source\repos\Informatika_2\Lab_1_up\Lab_1_up.cpp(133,15): message :  отсутствующий вариативный аргумент "2" требуется для строки форматирования "%c"
+C:\Users\Марина\source\repos\Informatika_2\Lab_1_up\Lab_1_up.cpp(133,15): message :  этот аргумент используется в качестве размера буфера
+C:\Users\Марина\source\repos\Informatika_2\Lab_1_up\Lab_1_up.cpp(140,18): warning C4473:  "scanf_s": передано недостаточно аргументов для строки формата
+C:\Users\Марина\source\repos\Informatika_2\Lab_1_up\Lab_1_up.cpp(140,18): message :  заполнители и их параметры ожидают переменное число аргументов в количестве 2, но было предоставлено 1
+C:\Users\Марина\source\repos\Informatika_2\Lab_1_up\Lab_1_up.cpp(140,18): message :  отсутствующий вариативный аргумент "2" требуется для строки форматирования "%c"
+C:\Users\Марина\source\repos\Informatika_2\Lab_1_up\Lab_1_up.cpp(140,18): message :  этот аргумент используется в качестве размера буфера
+  Lab_1_up.vcxproj -> C:\Users\Марина\source\repos\Informatika_2\Debug\Lab_1_up.exe
