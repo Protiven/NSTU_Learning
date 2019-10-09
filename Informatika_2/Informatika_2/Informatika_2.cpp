@@ -7,15 +7,15 @@
 #include "string.h"
 #include "math.h"
 
-// оно работает
+// оно работает вау
 
-int to_10(char* str, int osnovanie, int counts_symbs) 
+int to_10(char* str, int osnovanie, int counts_symbs)
 {
 	int string_1[20];
 	int result;
 	int i = 0;
 	int f = 0;
-	
+
 	do
 	{
 		if (str[i] >= '0' && str[i] <= '9')
@@ -26,7 +26,7 @@ int to_10(char* str, int osnovanie, int counts_symbs)
 			string_1[i] = str[i] - 'a' + 10;
 		i++;
 	} while (i != counts_symbs);
-	
+
 	i = 0;
 	int k = counts_symbs - 1;
 	do
@@ -87,7 +87,7 @@ void translation(char* str, int sch1, int sch2, int counts_symb)
 		printf_s("%d\n", ch);
 }
 
-bool check_func(char* str, int size, int sch)  
+bool check_func(char* str, int size, int sch)
 {
 	int r = size-1;
 	if (sch < 10 && r!=0)
@@ -132,18 +132,18 @@ int main()
 		scanf_s("%d", &sch2);
 		printf_s("Введите число (не более 20 символов): ");
 		getchar();
-		
+
 		char str[20];
 		char supp;
 		scanf_s("%c", &supp);
 		int i = 0;
-		
+
 		while (supp != '\n')
 		{
 			str[i] = supp;
 			i++;
 			scanf_s("%c", &supp);
-		} 
+		}
 		str[i] = '\0';
 
 		if (str != '\0')
@@ -161,4 +161,3 @@ int main()
 	}
 
 }
-
