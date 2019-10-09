@@ -7,7 +7,7 @@
 #include "string.h"
 #include "math.h"
 
-//епрст
+
 
 int to_10(char* str, int osnovanie, int counts_symbs) 
 {
