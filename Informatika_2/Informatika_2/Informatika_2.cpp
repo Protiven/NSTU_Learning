@@ -7,8 +7,6 @@
 #include "string.h"
 #include "math.h"
 
-/// lol kek
-
 int to_10(char* str, int osnovanie, int counts_symbs) 
 {
 	int string_1[20];
