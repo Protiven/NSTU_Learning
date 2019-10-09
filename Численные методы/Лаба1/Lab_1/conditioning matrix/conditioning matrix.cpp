@@ -17,41 +17,6 @@ int m_size; // полуширина
 int k = 0;
 
 
-bool check(int i, int j)
-{
-   int sup1 = 1, sup2 = 0;
-   while (sup2 < m_size || sup1 < n_size)
-   {
-      if (i == sup1 && j == sup2)
-         return false;
-      sup2++;
-      sup1++;
-   }
-   return true;
-}
-
-int index_di(int i, int j)
-{
-   int key = 0;
-   int sup1 = 1, sup2 = 0;
-   int str1 = 1, str2 = 0;
-   for (;;)
-   {
-      if (sup2 >= m_size || sup1 >= n_size)
-         break;
-      while (sup2 < m_size || sup1 < n_size)
-      {
-         if (i == sup1 && j == sup2)
-            return key;
-         sup1++;
-         sup2++;
-      }
-      key++;
-      sup1 = str1 + key;
-      sup2 = str2;
-   }
-}
-
 void init_f()
 {
    ofstream fout;
@@ -88,18 +53,18 @@ void init_f()
          sup++;
    }
 
-   // (Работоспособность: ???)
+   // (Работоспособность: Норм)
    for (int j = 0; j < m_size; j++)
-      di[0] += Up_m[1 + j][j];
+      di[0] += - Up_m[1 + j][j];
    di[0] += pow(10, -k);
 
    sup = 1;
    for (int i = 1; i < n_size; i++)
    {
       for (int j = 0; i + 1 + j < n_size && j < m_size; j++)
-         di[i] += Up_m[i + 1 + j][j];
+         di[i] += - Up_m[i + 1 + j][j];
       for (int j = 0; j < sup; j++)
-         di[i] += L_m[i][j];
+         di[i] += - L_m[i][j];
       if (sup < m_size)
          sup++;
    }
@@ -107,7 +72,7 @@ void init_f()
    // Генерация правой части обусловленности (Работоспособность: ???)
 
    sup = 0;
-   int sup1 = 0;
+   int sup1 = 1;
    for (int i = 0; i < n_size; i++)
    {
       vec_b[i] += di[i] * vec_x_star[i];
@@ -115,16 +80,50 @@ void init_f()
       for (int j = 0; i + 1 + j < n_size && j < m_size; j++)
          vec_b[i] += Up_m[i + 1 + j][j] * vec_x_star[i + j + 1];
 
-      for (int j = 0; j < sup; j++)
-         vec_b[i] += L_m[i][j] * vec_x_star[sup1 - j - 1]; 
-
-      if (sup < m_size)
+      for (int j = 0; j < sup && i - sup1 > -1; j++)
       {
-         sup++;
+         vec_b[i] += L_m[i][j] * vec_x_star[i - sup1];
          sup1++;
       }
+
+      sup1 = 1;
+
+      if (sup < m_size)
+         sup++;
    }
 
+
+   fout.open(in_di);
+   for (int i = 0; i < n_size; i++)
+      fout << di[i] << endl;
+   fout.close();
+   delete(in_di);
+
+   fout.open(in_vector);
+   for (int i = 0; i < n_size; i++)
+      fout << vec_b[i] << endl;
+   fout.close();
+   delete(in_vector);
+
+   fout.open(in_au);
+   for (int i = 0; i < n_size; i++)
+   {
+      for (int j = 0; j < m_size; j++)
+         fout << Up_m[i][j] << "\t";
+      fout << endl;
+   }
+   fout.close();
+   delete(in_au);
+
+   fout.open(in_al);
+   for (int i = 0; i < n_size; i++)
+   {
+      for (int j = 0; j < m_size; j++)
+         fout << L_m[i][j] << "\t";
+      fout << endl;
+   }
+   fout.close();
+   delete(in_al);
 }
 
 

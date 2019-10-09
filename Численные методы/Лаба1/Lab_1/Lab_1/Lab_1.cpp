@@ -90,7 +90,6 @@ void read_func(vector<type_data> &vec_b, vector< vector<type_data> > &Up_m, vect
 }
 
 
-
 void init_f(char* output)
 {
 	// Объявление и выделение памяти векторов и матрицы 
@@ -132,9 +131,7 @@ void init_f(char* output)
 		}
 
 		for (int k = 0; k < m_size; k++)
-		{
 			di[i] = di[i] - L_m[i][k] * Up_m[i][k];
-		}
 	}
 
 	// Разложение закончено
@@ -159,15 +156,6 @@ void init_f(char* output)
 		k = 0;
 	}
 
-	/*
-	vec_y[1] = vec_y[1] - L_m[1][0] * vec_y[0];
-
-	vec_y[2] = vec_y[2] - L_m[2][1] * vec_y[0] - L_m[2][0] * vec_y[1];
-	
-	vec_y[3] = vec_y[3] - L_m[3][2] * vec_y[0] - L_m[3][1] * vec_y[1] - L_m[3][0] * vec_y[2];
-	
-	vec_y[4] = vec_y[4] - L_m[4][2] * vec_y[1] - L_m[4][1] * vec_y[2] - L_m[4][0] * vec_y[3];
-	*/
 
 	// Решение x (U*x=y) "Обратный ход"
 
@@ -188,19 +176,12 @@ void init_f(char* output)
 		vec_x[i] /= di[i];
 	}
 
-	for (int i = 0; i < n_size; i++)
-		std::cout << vec_x[i] << endl;
 
+   for (int i = 0; i < n_size; i++)
+		cout << vec_x[i] << endl;
 
-	/*
-	vec_x[n-2] = vec_x[n-2] - Up_m[n-1][0] * vec_x[n-1];
-	vec_x[n-3] = vec_x[n-3] - Up_m[n-2][0] * vec_x[n-2] - Up_m[n-1][1] * vec_x[n-1];
-	vec_x[n-4] = vec_x[n-4] - Up_m[n-3][0] * vec_x[n-3] - Up_m[n-2][1] * vec_x[n-2] - Up_m[n-1][2] * vec_x[n-1];
-	vec_x[n-5] = vec_x[n-5] - Up_m[n-4][0] * vec_x[n-4] - Up_m[n-3][1] * vec_x[n-3] - Up_m[n-2][2] * vec_x[n-2];
-	*/
 
 }
-
 
 
 int main()
