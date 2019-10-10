@@ -11,11 +11,9 @@
 
 using namespace std;
 
-
 int n_size; // размерность матрицы
 int m_size; // полуширина
 int k = 0;
-
 
 void init_f()
 {
@@ -125,8 +123,6 @@ void init_f()
    fout.close();
    delete(in_al);
 }
-
-
 
 int main()
 {
