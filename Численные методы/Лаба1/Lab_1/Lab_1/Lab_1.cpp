@@ -10,8 +10,8 @@
 using namespace std;
 
 // Здесь меняется точность
-typedef float type_data;
-typedef float scal;
+typedef double type_data;
+typedef double scal;
 
 int n_size; // размерность матрицы
 int m_size; // полуширина
