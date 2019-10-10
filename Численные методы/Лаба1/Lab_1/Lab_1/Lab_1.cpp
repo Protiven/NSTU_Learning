@@ -10,7 +10,8 @@
 using namespace std;
 
 // Здесь меняется точность
-typedef double type_data;
+typedef float type_data;
+typedef float scal;
 
 int n_size; // размерность матрицы
 int m_size; // полуширина
@@ -89,8 +90,100 @@ void read_func(vector<type_data> &vec_b, vector< vector<type_data> > &Up_m, vect
 
 }
 
+void LU_decomposition(vector< vector<type_data> >& Up_m, vector< vector<type_data> >& L_m, vector<type_data>& di)
+{
+   int add_j = 1, support = 0;
+   int j = 0, l = 0;
+   scal sup_scal;
 
-void init_f(char* output)
+   for (int i = 0; i < n_size; i++)
+   {
+
+      for (j = m_size - 1; j >= 0; j--)
+      {
+         if (check(i, j))
+         {
+            for (int k = j + 1; k < m_size && i != j && i > j; k++)
+            {
+               sup_scal = L_m[i][k] * Up_m[i - j - 1][k - 1 - j];
+               L_m[i][j] = (L_m[i][j] - sup_scal);
+               sup_scal = Up_m[i][k] * L_m[i - j - 1][k - 1 - j];
+               Up_m[i][j] = Up_m[i][j] - sup_scal;
+            }
+
+         }
+         if (i != j && i > j)
+            L_m[i][j] = L_m[i][j] / di[index_di(i, j)];
+
+      }
+
+      for (int k = 0; k < m_size; k++)
+      {
+         sup_scal = L_m[i][k] * Up_m[i][k];
+         di[i] = di[i] - sup_scal;
+      }
+   }
+}
+
+void forward_motion(vector< vector<type_data> > L_m, vector<type_data>& vec_y, vector<type_data> vec_b)
+{
+   // Решение y (L*y=b) "Прямой ход" 
+   scal sup_scal;
+   for (int i = 0; i < n_size; i++)
+      vec_y[i] = vec_b[i];
+
+   int k = 0;
+
+   for (int i = 1; i < n_size; i++) // Так как первый вектор уже найден
+   {
+      for (int j = i - 1; j >= 0 && k < m_size; j--)
+      {
+         sup_scal = L_m[i][k] * vec_y[j];
+         vec_y[i] = vec_y[i] - sup_scal;
+         k++;
+      }
+      k = 0;
+   }
+}
+
+void back_motion(vector< vector<type_data> > Up_m, vector<type_data>& vec_x, vector<type_data> vec_y, vector<type_data> di)
+{
+   // Решение x (U*x=y) "Обратный ход"
+   scal sup_scal;
+   for (int i = 0; i < n_size; i++)
+      vec_x[i] = vec_y[i];
+   vec_x[n_size - 1] /= di[n_size - 1];
+
+   int support = 0;
+
+   for (int i = n_size - 2; i >= 0; i--)
+   {
+      support = 0;
+      for (int j = i + 1; j < n_size && support < m_size; j++)
+      {
+         sup_scal = Up_m[j][support] * vec_x[j];
+         vec_x[i] = vec_x[i] - sup_scal;
+         support++;
+      }
+      vec_x[i] /= di[i];
+   }
+
+}
+
+void output_func(vector<type_data> vec_x)
+{
+   char* output = new char[10]{ "out.txt" };
+   ofstream fout;
+   fout.precision(16);
+
+   fout.open(output);
+   for (int i = 0; i < n_size; i++)
+      fout << vec_x[i] << endl;
+   fout.close();
+   delete(output);
+}
+
+void init_f()
 {
 	// Объявление и выделение памяти векторов и матрицы 
 	vector<type_data> vec_b(n_size);
@@ -105,97 +198,21 @@ void init_f(char* output)
 	//   
 
    read_func(vec_b, Up_m, L_m, di);
-
-	// LU - разложение
-	int add_j = 1, support = 0;
-	int j = 0, l = 0;
-
-	for (int i = 0; i < n_size; i++)
-	{
-
-		for (j = m_size - 1; j >= 0; j--)
-		{
-			if (check(i, j))
-			{
-				for (int k = j + 1; k < m_size && i != j && i > j; k++)
-				{
-
-					L_m[i][j] = (L_m[i][j] - L_m[i][k] * Up_m[i - j - 1][k - 1 - j]);
-					Up_m[i][j] = Up_m[i][j] - Up_m[i][k] * L_m[i - j - 1][k - 1 - j];
-				}
-
-			}
-			if (i != j && i > j)
-				L_m[i][j] = L_m[i][j] / di[index_di(i, j)];
-
-		}
-
-		for (int k = 0; k < m_size; k++)
-			di[i] = di[i] - L_m[i][k] * Up_m[i][k];
-	}
-
-	// Разложение закончено
-
-
-
-
-	// Решение y (L*y=b) "Прямой ход" (Делается правильно)
-	for (int i = 0; i < n_size; i++)
-		vec_y[i] = vec_b[i];
-
-	support = 0;
-	int k = 0;
-
-	for (int i = 1; i < n_size; i++) // Так как первый вектор уже найден
-	{
-		for (int j = i - 1; j >= 0 && k < m_size; j--)
-		{
-			vec_y[i] = vec_y[i] - L_m[i][k] * vec_y[j];
-			k++;
-		}
-		k = 0;
-	}
-
-
-	// Решение x (U*x=y) "Обратный ход"
-
-	for (int i = 0; i < n_size; i++)
-		vec_x[i] = vec_y[i];
-	vec_x[n_size - 1] /= di[n_size - 1];
-	
-	support = 0;
-
-	for (int i = n_size - 2; i >= 0; i--)
-	{
-		support = 0;
-		for (int j = i + 1; j < n_size && support < m_size; j++)
-		{
-			vec_x[i] = vec_x[i] - Up_m[j][support] * vec_x[j];
-			support++;
-		}
-		vec_x[i] /= di[i];
-	}
-
-
-   for (int i = 0; i < n_size; i++)
-		cout << vec_x[i] << endl;
-
-
+   LU_decomposition(Up_m, L_m, di);
+   forward_motion(L_m, vec_y, vec_b);
+   back_motion(Up_m, vec_x, vec_y, di);
+   output_func(vec_x);
 }
-
 
 int main()
 {
 	setlocale(LC_ALL, "rus");
 	char* info_addr = new char[10]{ "info.txt" }; // Запись в виде: размерность матрицы, ширина ленты 
-	char* output = new char[10]{ "out.txt" };
-
 	ifstream fcin_1(info_addr);
 
 	fcin_1 >> n_size >> m_size;
 	fcin_1.close();
 
-	// Изменение точности и не только 
-	init_f(output);
+	init_f();
 }
 
