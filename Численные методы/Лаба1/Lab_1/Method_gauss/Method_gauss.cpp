@@ -44,7 +44,7 @@ void method_gauss(vector< vector<type_data> >& Matr)
       }
       if (max < e)
       {
-         cout << "Система не имеет однозначного решения";
+         cout << "Система не имеет решения";
          flag = 0;
       }
       else
