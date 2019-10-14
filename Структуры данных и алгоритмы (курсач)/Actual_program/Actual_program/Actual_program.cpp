@@ -37,33 +37,49 @@ int read_objects()
 	return 1;
 }
 
-int correct_matrix()  
+int correct_matrix()
 {
-	for (int i = 0; i < 8; i++)
-		for (int j = 0; j < 8; j++)
-		{
-			if (object_matrix[i][j] == 0)
-				object_matrix[i][j] = BLANK;
-			else
-			{
-				if (object_matrix[i][j] == 1)
-					object_matrix[i][j] = WALL;
-				else
-				{
-					if (object_matrix[i][j] == 2)
-					{
-						xs = i;
-						ys = j;
-					}
-					else
-					{
-						xf = i;
-						yf = j;
-					}
-					object_matrix[i][j] = -2;
-				}
-			}
-		}
+   xf = -3, yf = -3, xs = -3, ys = -3; // присваиваем недопустимые значения 
+   for (int i = 0; i < 8; i++)
+      for (int j = 0; j < 8; j++)
+      {
+         if (object_matrix[i][j] == 0)
+            object_matrix[i][j] = BLANK;
+         else
+         {
+            if (object_matrix[i][j] == 1)
+               object_matrix[i][j] = WALL;
+            else
+            {
+               if (object_matrix[i][j] == 2)
+               {
+                  xs = i;
+                  ys = j;
+               }
+               else
+               {
+                  xf = i;
+                  yf = j;
+               }
+               object_matrix[i][j] = -2;
+            }
+         }
+      }
+   if (xf == -3 && xs == -3)
+   {
+      printf_s("Отсутствую данные о начальной и конечной точках.\n");
+      return 0;
+   }
+   else if (xf == -3)
+   {
+      printf_s("Отсутствую данные о конечной точке.\n");
+      return 0;
+   }
+   else if (xs == -3)
+   {
+      printf_s("Отсутствую данные о начальной точке.\n");
+      return 0;
+   }
 	return 1;
 }
 
@@ -83,7 +99,14 @@ bool lee_upgrade(int ax, int ay, int bx, int by)  // поиск пути из я
 	bool stop;
 
 	if (object_matrix[ax][ay] == WALL || object_matrix[bx][by] == WALL) return false;  // ячейка (ax, ay) или (bx, by) - стена
-
+   if (ax == bx && ay == by)
+   {
+      len = 0;
+      px[0] = ay;
+      py[0] = ax;
+      out_func();
+      return true;
+   }
 	// распространение волны
 	d = 0;
 	object_matrix[ax][ay] = 0; // стартовая ячейка помечена 0
@@ -166,10 +189,10 @@ int main()
 				printf_s("Решение не найдено!\n");
 		}
 		else
-			printf_s("Ошибка в обработке данных\n");
+			printf_s("Ошибка в данных.\n");
 	}
 	else
-		printf_s("Ошибка при считывании из файла\n");
+		printf_s("Ошибка при считывании из файла.\n");
 	printf_s("Нажмите любую клавишу для выхода из программы.\n");
 	getchar();
 }
