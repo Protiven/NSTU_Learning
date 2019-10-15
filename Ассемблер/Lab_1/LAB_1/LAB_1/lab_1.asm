@@ -92,7 +92,7 @@ ERROR2:
 PUSH OFFSET STRN4; в стек помещается адрес строки
 CALL lstrlenA@4; длина в EAX
 
-; вызов функции WriteConsoleA для вывода строки STRN3
+; вызов функции WriteConsoleA для вывода строки STRN4
 PUSH 0; в стек помещается 5-й параметр
 PUSH OFFSET LENS; 4-й параметр
 PUSH EAX; 3-й параметр
@@ -145,9 +145,9 @@ JE MIN1
 INC ECX
 LOOP CONVERT
 MIN1:
-ADD FLAGM,1
-INC ESI
-LOOP CONVERT
+	ADD FLAGM,1
+	INC ESI
+	LOOP CONVERT
 CONVERT: 	; метка начала тела цикла
 	MOV BL, [ESI]; поместить символ из введенной строки в регистр 
 	; BL, используя косвенную адресацию
@@ -219,7 +219,7 @@ JE MIN2
 INC ECX
 LOOP CONVERT2
 MIN2:
-ADD FLAGM,2
+ADD FLAGM, 2
 INC ESI
 LOOP CONVERT2
 CONVERT2: 	; метка начала тела цикла
@@ -277,7 +277,7 @@ LOOP SUMOUTPUTM
 
 
 SUBab2:
-SUB EBX,EAX  
+SUB EBX, EAX  
 MOV NUMA, EBX
 CMP FLAGM, 2
 JE SUMOUTPUTM
@@ -285,7 +285,7 @@ LOOP SUMOUTPUT
 
 SUMOUTPUTM:
 ; ВЫВОД FMT2
-XOR EAX,EAX
+XOR EAX, EAX
 MOV  EAX, OFFSET FMT2;	адрес FMT2 строки -> в регистр ЕАХ
 PUSH EAX; параметры функции помещаются в стек командой PUSH
 PUSH EAX
@@ -307,7 +307,7 @@ LOOP FINALMARK
 SUMOUTPUT:
 ;ВЫВОД РЕЗУЛЬТАТА
 ; ВЫВОД FMT
-XOR EAX,EAX
+XOR EAX, EAX
 MOV  EAX, OFFSET FMT;	адрес FMT строки -> в регистр ЕАХ
 PUSH EAX; параметры функции помещаются в стек командой PUSH
 PUSH EAX
