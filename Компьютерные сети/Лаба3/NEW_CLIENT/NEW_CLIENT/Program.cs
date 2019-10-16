@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace Client
 {
@@ -23,10 +24,13 @@ namespace Client
                 client.Connect(localhost, port);
 
                 client.Send(data, data.Length, SocketFlags.None);
-                // буффер для приема сообщений 
-                data = new Byte[1000];
-                // строка для приема сообщений сервера 
-                client.Receive(data, SocketFlags.None);
+                
+                data = new Byte[1000]; // буффер для приема сообщений 
+
+                Thread.Sleep(10000);
+                
+
+                client.Receive(data, SocketFlags.None);  // строка для приема сообщений сервера 
                 int i = 0;
                 for (; data[i] != 0;)
                     i++;
@@ -34,10 +38,9 @@ namespace Client
 
                 String responseData = Encoding.ASCII.GetString(data, 0, i);
 
-                //печатаем то, что получили 
                 Console.WriteLine("Received: {0}", responseData);
 
-                // закрываем соединение 
+
                 client.Close();
             }
             catch (ArgumentNullException expt)

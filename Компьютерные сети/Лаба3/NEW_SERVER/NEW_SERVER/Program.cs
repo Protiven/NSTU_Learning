@@ -4,112 +4,128 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Collections;
 using System.Collections.Generic;
 
 
-class Server
+namespace ConsoleApplication1
 {
-    static void Main()
+    class Program
     {
-        const int buff_s = 1000;
-        // Создание сокета
-        Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp); // поиграться с AddressFamily
+        public static Hashtable clientsList = new Hashtable();
 
-        try
+        static void Main(string[] args)
         {
+            Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp); // поиграться с AddressFamily
             Int32 port = 7111; // порт сервера
-            string adr1 = "10.241.120.25";
+            string adr1 = "192.168.0.100";
             IPAddress localhost = IPAddress.Parse(adr1);
             IPEndPoint address = new IPEndPoint(localhost, port);
-
-
             server.Bind(address);
+            int counter = 0;
 
-            Byte[] bytes = new Byte[buff_s];
-            String data;
-
-            while (true)
+            counter = 0;
+            while ((true))
             {
-                Console.Write("Waiting for a connection... ");
-                server.Listen(5);
-                Socket new_s = server.Accept();
-                Console.WriteLine("Connected!");
+                server.Listen(7);
+                thr_client new_s = new thr_client(server.Accept(), clientsList);
 
-                new_s.Receive(bytes);
+            }
 
-                int i = 3;
-                if (i > 0)
+            server.Close();
+            Console.WriteLine("exit");
+            Console.ReadLine();
+        }
+
+    }
+
+
+
+    public class thr_client
+    {
+        public int id;
+        public static int counts = 0;
+        Socket cl;
+        public Hashtable table;
+        public thr_client(Socket s, Hashtable table)
+        {
+            this.id = counts;
+            this.cl = s;
+            counts++;
+            this.table = table;
+            table.Add(this.id, cl);
+           
+            
+            
+            // вывод в консоль
+            Console.WriteLine("Connected {0}.", s.RemoteEndPoint.ToString());
+            broadcast(id, table, "Connected " + s.RemoteEndPoint.ToString() + ".\n");
+            // хотим вывести всем
+
+            
+            
+            Thread th1 = new Thread(start);
+            th1.Start();
+        }
+
+        public void broadcast(int id, Hashtable tabl, string mess)
+        {
+            byte[] mess_1 = Encoding.ASCII.GetBytes(mess);
+
+
+            Thread.Sleep(4000);
+
+            foreach (DictionaryEntry Item in tabl)
+            {
+                if (!Item.Key.Equals(id))
                 {
-                    data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
-                    Console.WriteLine("Received: {0}", data);
-
-                    string answer_message = "";
-                    byte[] msg = System.Text.Encoding.ASCII.GetBytes(answer_message);
-
-                    new_s.Send(msg, msg.Length, SocketFlags.None);
+                    Socket s = (Socket)Item.Value;
+                    s.Send(mess_1, SocketFlags.None);
                 }
-                new_s.Close();
-
+                else 
+                {
+                    Socket s = (Socket)Item.Value;
+                    s.Send(Encoding.ASCII.GetBytes("YOU are " + s.RemoteEndPoint.ToString()+"\n"), SocketFlags.None);
+                }
             }
         }
-        catch (SocketException expt)
-        {
-            Console.WriteLine("SocketException: {0}", expt);
-        }
-        finally
-        {
-            server.Dispose();
-        }
 
-        Console.WriteLine("\nHit enter to continue...");
-        Console.Read();
+        private void start()
+        {
+            int mess_Count = 0;
+            byte[] bytesFrom = new byte[10025];
+            string dataFromClient = null;
+/*            Byte[] sendBytes = null;
+            string serverResponse = null;
+            string rCount = null;
+*/           
+            mess_Count = 0;
 
+            while ((true))
+            {
+                try
+                {
+                    cl.Receive(bytesFrom);
+                    if (bytesFrom[0] != 0)
+                    {
+                        while (bytesFrom[mess_Count] != 0)
+                            mess_Count++;
+                        dataFromClient = System.Text.Encoding.ASCII.GetString(bytesFrom, 0, mess_Count);
+                        dataFromClient += '\n';
+                        // Вывели в консоль
+                        Console.WriteLine("Recieved from {0}: {1}", cl.RemoteEndPoint.ToString(), dataFromClient);
+                        broadcast(id, table, cl.RemoteEndPoint.ToString() + ": "+ dataFromClient);
+                        // Хотим вывод на других клиентов
+                        bytesFrom[0] = 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("SRABOTALO ISKLYCHENIE");
+                    break;
+                }
+            }//end while
+        }
     }
+
 }
-
-public class thread_client
-{
-    TcpClient clientSocket;
-    string clNo;
- 
-    public void startClient(TcpClient inClientSocket, string clineNo)
-    {
-        this.clientSocket = inClientSocket;
-        this.clNo = clineNo;
-        Thread ctThread = new Thread(doChat);
-        ctThread.Start();
-    }
-
-    private void doChat()
-    {
-        int requestCount = 0;
-        byte[] bytesFrom = new byte[10025];
-        string dataFromClient = null;
-        Byte[] sendBytes = null;
-        string serverResponse = null;
-        string rCount = null;
-        requestCount = 0;
-
-        while ((true))
-        {
-            try
-            {
-                requestCount = requestCount + 1;
-                NetworkStream networkStream = clientSocket.GetStream();
-                networkStream.Read(bytesFrom, 0, (int)clientSocket.ReceiveBufferSize);
-                dataFromClient = System.Text.Encoding.ASCII.GetString(bytesFrom);
-                dataFromClient = dataFromClient.Substring(0, dataFromClient.IndexOf("$"));
-                Console.WriteLine("From client - " + clNo + " : " + dataFromClient);
-                rCount = Convert.ToString(requestCount);
-
-            //    Program.broadcast(dataFromClient, clNo, true);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-        }
-    }
-}  
-
-
