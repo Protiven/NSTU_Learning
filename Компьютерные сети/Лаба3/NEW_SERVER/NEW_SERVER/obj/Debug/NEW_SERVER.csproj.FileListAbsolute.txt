@@ -1,0 +1,6 @@
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\NEW_SERVER\NEW_SERVER\bin\Debug\NEW_SERVER.exe.config
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\NEW_SERVER\NEW_SERVER\bin\Debug\NEW_SERVER.exe
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\NEW_SERVER\NEW_SERVER\bin\Debug\NEW_SERVER.pdb
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\NEW_SERVER\NEW_SERVER\obj\Debug\NEW_SERVER.csprojAssemblyReference.cache
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\NEW_SERVER\NEW_SERVER\obj\Debug\NEW_SERVER.exe
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\NEW_SERVER\NEW_SERVER\obj\Debug\NEW_SERVER.pdb
