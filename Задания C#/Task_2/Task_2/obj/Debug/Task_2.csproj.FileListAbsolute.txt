@@ -5,3 +5,9 @@ C:\Users\Марина\source\repos\Задания C#\Task_2\Task_2\obj\Debug\Tas
 C:\Users\Марина\source\repos\Задания C#\Task_2\Task_2\obj\Debug\Task_2.csproj.CoreCompileInputs.cache
 C:\Users\Марина\source\repos\Задания C#\Task_2\Task_2\obj\Debug\Task_2.exe
 C:\Users\Марина\source\repos\Задания C#\Task_2\Task_2\obj\Debug\Task_2.pdb
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Задания C#\Task_2\Task_2\bin\Debug\Task_2.exe.config
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Задания C#\Task_2\Task_2\bin\Debug\Task_2.exe
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Задания C#\Task_2\Task_2\bin\Debug\Task_2.pdb
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Задания C#\Task_2\Task_2\obj\Debug\Task_2.csprojAssemblyReference.cache
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Задания C#\Task_2\Task_2\obj\Debug\Task_2.exe
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Задания C#\Task_2\Task_2\obj\Debug\Task_2.pdb

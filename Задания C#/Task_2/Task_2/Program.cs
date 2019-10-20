@@ -115,7 +115,7 @@ namespace Task_2
 
         override public String ToString()
         {
-            return $"teacher Name: {Surname,15} {Name,10} {Lastname,15}, BirthDate:{Date: dd.MM.yyyy}, Age:{Age,4}, Department:{Department,7}, Years:{Years,7:f1}, Dolg:{Dolg,-3}";
+            return $"teacher Name: {Surname,15} {Name,10} {Lastname,15}, BirthDate:{Date: dd.MM.yyyy}, Age:{Age,4}, Department:{Department,7}, Years:{Years,7:f1}, Dolg: {Dolg,-3}";
         }
     }
 
