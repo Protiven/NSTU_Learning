@@ -1,0 +1,10 @@
+var day=new Date();
+var weekday=new Array(7);
+weekday[0]="Воскресенье";
+weekday[1]="Понедельник";
+weekday[2]="Вторник";
+weekday[3]="Среда";
+weekday[4]="Четверг";
+weekday[5]="Пятница";
+weekday[6]="Суббота";
+document.write(weekday[day.getDay()] +", "+ day.getHours()+":" + day.getMinutes()+":"+day.getSeconds());
