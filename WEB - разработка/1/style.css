@@ -73,6 +73,7 @@ ul
 }
 .main_div
 {
+	min-height:100%;
 	background-color:white;
 	position: absolute;
 	left: 175;
@@ -123,6 +124,7 @@ a
 span
 {
 	word-wrap: break-word;
+	font-size: 17px;
 }
 
 .info_new
@@ -138,6 +140,7 @@ span
 #N_m
 {	
 	border-top: 3px solid rgb(201, 48, 55);
+	padding-left:10px;
 	padding-top:10px;
 	border-bottom-color:rgb(21, 21, 21);
 	background-color: rgb(234, 233, 218);
@@ -154,7 +157,7 @@ span
 	font-family:"PT Serif", Georgia, "Times New Roman", Times, serif;
 	font-size: 14px;
 	font-style: normal;
-	height: 45px;
+	height: 70px;
 	line-height: 20px;
 	padding-bottom: 12px;
 	left:10px;
@@ -166,4 +169,11 @@ span
 .spec_image
 {
 
+}
+
+.N_img
+{
+	margin-bottom: 15px;
+	margin-right: 15px;
+	
 }

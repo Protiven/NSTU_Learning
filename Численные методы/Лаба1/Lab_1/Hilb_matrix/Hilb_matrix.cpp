@@ -25,7 +25,7 @@ void init_f()
 
    // Объявление и выделение памяти векторов и матрицы 
    vector<float> vec_b(n_size);
-   vector<int> vec_x_star(n_size);
+   vector<float> vec_x_star(n_size);
 
    for (int i = 0; i < n_size; i++)
       vec_x_star[i] = i + 1;

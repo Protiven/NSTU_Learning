@@ -35,7 +35,7 @@ void init_f()
    // Ориентироваться в матрице никак (x, y), а как запись индексации в обычных матрицах
    vector< vector<int> > Up_m(n_size, vector<int>(m_size));
    vector< vector<int> > L_m(n_size, vector<int>(m_size));
-   vector<int> di(n_size);
+   vector<float> di(n_size);
    //   
    int sup = 1;
    srand(time(NULL));
