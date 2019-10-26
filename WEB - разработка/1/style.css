@@ -1,0 +1,42 @@
+.label
+{
+	width: 100%;
+	height: 5%;
+	margin: 0px;
+	background-color: grey;
+	position: fixed;
+	float:top;
+}
+
+body
+{
+	margin:0;
+}
+
+.sidebar_menu
+{
+	margin-top: 7.3%;
+	width: 30%;
+	height: 60%;
+	float:left;
+	position: fixed;
+	background-color: green;
+}
+
+
+.block_content
+{
+	margin-left: 30%;
+	width: 70%;
+	height: 100%;
+	margin-top: 0%;
+	background-color: blue;
+}
+
+.copyright_
+{
+	width: 100%;
+	height: 3%;
+	background-color: black;
+	position: fixed;
+}
