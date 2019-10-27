@@ -1,6 +1,0 @@
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\NEW_CLIENT\NEW_CLIENT\bin\Debug\NEW_CLIENT.exe.config
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\NEW_CLIENT\NEW_CLIENT\bin\Debug\NEW_CLIENT.exe
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\NEW_CLIENT\NEW_CLIENT\bin\Debug\NEW_CLIENT.pdb
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\NEW_CLIENT\NEW_CLIENT\obj\Debug\NEW_CLIENT.csprojAssemblyReference.cache
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\NEW_CLIENT\NEW_CLIENT\obj\Debug\NEW_CLIENT.exe
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\NEW_CLIENT\NEW_CLIENT\obj\Debug\NEW_CLIENT.pdb
