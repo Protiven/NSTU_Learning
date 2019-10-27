@@ -17,7 +17,7 @@ namespace CLIENT
     public partial class Form1 : Form
     {
         static private Socket Client;
-        private string ip = null;
+        private IPAddress ip = null;
         private int port = 0;
         private string login = "";
         private Thread th_add;
@@ -98,8 +98,8 @@ namespace CLIENT
             // T_b2 - ip, T_b3 - port
             if (textBox2.Text != "" && textBox3.Text != "")
             {
-                ip = textBox2.Text;
-                port = Convert.ToInt32(textBox3.Text);
+                ip = IPAddress.Parse(textBox2.Text);
+                port = int.Parse(textBox3.Text);
 
                 Client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
@@ -118,9 +118,9 @@ namespace CLIENT
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            if(th_add != null)
+            if (th_add != null)
                 th_add.Abort();
             if (Client != null)
                 Client.Close();
