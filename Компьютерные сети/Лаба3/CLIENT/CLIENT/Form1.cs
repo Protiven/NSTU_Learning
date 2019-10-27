@@ -38,7 +38,12 @@ namespace CLIENT
         {
             string message = richTextBox2.Text;
             if (message != "")
+            {
+                message += ';';
                 sendMessage(message);
+            }
+
+            richTextBox2.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)  // Вставка логина
@@ -55,10 +60,11 @@ namespace CLIENT
 
         private void sendMessage(string message)
         {
+            string message1 = login + ": " + message;
             if (message != " " && message != "")
             {
                 byte[] buffer = new byte[1024];
-                buffer = Encoding.UTF8.GetBytes(message);
+                buffer = Encoding.UTF8.GetBytes(message1);
                 Client.Send(buffer);
             }
         }
@@ -75,19 +81,24 @@ namespace CLIENT
                 {
                     Client.Receive(buffer);
                     string message = Encoding.UTF8.GetString(buffer);
-                    int count = message.IndexOf(";;;5");
-                    if (count == -1)
-                        continue;
+                    int count = 0;
+                    for (; buffer[count] != 0; count++)
+                        ;
 
                     string clear_message = "";
 
                     for (int i = 0; i < count; i++)
                         clear_message += message[i];
+                    clear_message += '\n';
 
                     this.Invoke((MethodInvoker)delegate ()
                     {
                         richTextBox1.AppendText(clear_message);
                     });
+
+                    for (int i = 0; i < count; i++)
+                        buffer[i] = 0;
+
                 }
                 catch (Exception ex) { }
             }
@@ -106,7 +117,8 @@ namespace CLIENT
                 if (ip != null)
                 {
                     Client.Connect(ip, port);
-                    th_add = new Thread(delegate () { recvMessage(); });
+                    th_add = new Thread(delegate() { recvMessage(); });
+                    th_add.Start();
 
                     textBox2.Enabled = false;
                     textBox3.Enabled = false;

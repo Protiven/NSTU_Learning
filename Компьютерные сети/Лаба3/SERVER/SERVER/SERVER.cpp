@@ -15,11 +15,21 @@ void SendMessageToClient(int ID)
    for (;; Sleep(75))
    {
       memset(buffer, 0, sizeof(buffer));
-      if (recv(Connections[ID], buffer, 1024, NULL))
+      recv(Connections[ID], buffer, 1024, NULL);
+      int key = 0;
+      
+      for (key; buffer[key] != ';'; key++)
+         ;
+
+
+      if (buffer[0]!= 0)
       {
-         std::cout << (buffer) << std::endl;
+         for (int i = 0; i < key; i++)
+            printf_s("%c", buffer[i]);
+         std::cout << std::endl;
+
          for (int i = 0; i <= ClientCount; i++)
-            send(Connections[i], buffer, strlen(buffer), NULL);
+            send(Connections[i], buffer, key, NULL);
       }
    }
    delete(buffer);
@@ -55,7 +65,7 @@ int main()
    freeaddrinfo(result);
 
    std::cout << "Start server..." << std::endl;
-   char m_connect[] = "Connect...;;;5";
+   char m_connect[] = "Connect...";
 
    for (;; Sleep(75))
    {
@@ -64,7 +74,8 @@ int main()
          printf("Client connected...\n");
          Connections[ClientCount] = Connect;
          send(Connections[ClientCount], m_connect, strlen(m_connect), NULL);
-         CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)SendMessageToClient, (LPVOID)(ClientCount - 1), NULL, NULL);
+         CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)SendMessageToClient, (LPVOID)(ClientCount), NULL, NULL);
+         ClientCount++;
       }
    }
 
