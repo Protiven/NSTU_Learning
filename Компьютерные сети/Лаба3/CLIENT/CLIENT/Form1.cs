@@ -94,6 +94,7 @@ namespace CLIENT
                     this.Invoke((MethodInvoker)delegate ()
                     {
                         richTextBox1.AppendText(clear_message);
+
                     });
 
                     for (int i = 0; i < count; i++)
@@ -116,20 +117,35 @@ namespace CLIENT
 
                 if (ip != null)
                 {
-                    Client.Connect(ip, port);
-                    th_add = new Thread(delegate() { recvMessage(); });
-                    th_add.Start();
+                    try
+                    {
+                        Client.Connect(ip, port);
+                        th_add = new Thread(delegate () { recvMessage(); });
+                        th_add.Start();
 
-                    textBox2.Enabled = false;
-                    textBox3.Enabled = false;
-                    button3.Enabled = false;
+                        textBox2.Enabled = false;
+                        textBox3.Enabled = false;
+                        button3.Enabled = false;
 
-                    textBox1.Enabled = true;
-                    button1.Enabled = true;
+                        textBox1.Enabled = true;
+                        button1.Enabled = true;
+                    }
+                    catch (SocketException ex)
+                    {
+                        exit_func();
+                    }
                 }
             }
         }
 
+        private void exit_func()
+        {
+            if (th_add != null)
+                th_add.Abort();
+            if (Client != null)
+                Client.Close();
+            Application.Exit();
+        }
         private void button4_Click(object sender, EventArgs e)
         {
             if (th_add != null)

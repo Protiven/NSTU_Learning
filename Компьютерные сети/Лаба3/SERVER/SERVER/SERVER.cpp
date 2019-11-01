@@ -69,14 +69,19 @@ int main()
 
    for (;; Sleep(75))
    {
-      if (Connect = accept(Listen, NULL, NULL))
+      if (ClientCount < SOMAXCONN)
       {
-         printf("Client connected...\n");
-         Connections[ClientCount] = Connect;
-         send(Connections[ClientCount], m_connect, strlen(m_connect), NULL);
-         CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)SendMessageToClient, (LPVOID)(ClientCount), NULL, NULL);
-         ClientCount++;
+         if (Connect = accept(Listen, NULL, NULL))
+         {
+            printf("Client connected...\n");
+            Connections[ClientCount] = Connect;
+            send(Connections[ClientCount], m_connect, strlen(m_connect), NULL);
+            CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)SendMessageToClient, (LPVOID)(ClientCount), NULL, NULL);
+            ClientCount++;
+         }
       }
+      else
+         closesocket(accept(Listen, NULL, NULL));
    }
 
    return 1;
