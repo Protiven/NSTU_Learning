@@ -125,13 +125,9 @@ int main()
 {
    setlocale(LC_ALL, "rus");
    char* info_addr = new char[10]{ "info.txt" }; // Запись в виде: размерность матрицы, ширина ленты 
-
    ifstream fcin(info_addr);
-
    fcin >> n_size >> m_size;
    fcin.close();
-
-   // Изменение точности и не только 
    init_f();
 }
 

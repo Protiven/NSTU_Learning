@@ -51,6 +51,7 @@ namespace CLIENT
             login = textBox1.Text;
             if (login != "" && login!= " ")
             {
+                sendMessage(login);
                 richTextBox2.Enabled = true;
                 button2.Enabled = true;
                 textBox1.Enabled = false;
