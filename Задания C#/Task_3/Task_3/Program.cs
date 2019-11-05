@@ -236,7 +236,7 @@ namespace Laba3
             var x = new Constant(4);
 
 
-            var expr = 2 * x;
+            Tanh expr = new Tanh(2 * x);
 
 
             Console.WriteLine($"const = {expr.IsConstant}");

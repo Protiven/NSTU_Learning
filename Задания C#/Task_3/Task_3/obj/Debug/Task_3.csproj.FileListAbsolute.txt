@@ -11,3 +11,9 @@ C:\Users\Слава\Documents\GitHub\NSTU_Learning\Задания C#\Task_3\Task
 C:\Users\Слава\Documents\GitHub\NSTU_Learning\Задания C#\Task_3\Task_3\obj\Debug\Task_3.csprojAssemblyReference.cache
 C:\Users\Слава\Documents\GitHub\NSTU_Learning\Задания C#\Task_3\Task_3\obj\Debug\Task_3.exe
 C:\Users\Слава\Documents\GitHub\NSTU_Learning\Задания C#\Task_3\Task_3\obj\Debug\Task_3.pdb
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Задания C#\Task_3\Task_3\obj\Debug\Task_3.csprojAssemblyReference.cache
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Задания C#\Task_3\Task_3\obj\Debug\Task_3.exe
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Задания C#\Task_3\Task_3\obj\Debug\Task_3.pdb
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Задания C#\Task_3\Task_3\bin\Debug\Task_3.exe.config
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Задания C#\Task_3\Task_3\bin\Debug\Task_3.exe
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Задания C#\Task_3\Task_3\bin\Debug\Task_3.pdb
