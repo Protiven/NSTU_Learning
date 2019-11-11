@@ -1,8 +1,19 @@
 <?php
 	session_start();
+	
+	setcookie("TEST", "example", time()+ 600);
+	
 	global $mysqli;
 	$mysqli = new mysqli('localhost', 'root', '', 'news_base');
 
+	if(isset($_GET['exit']))
+	{
+		if($_GET['exit'] == 1)
+		{
+			session_destroy();
+			$_GET['exit'] = 0;
+		}
+	}
 ?>
 
 <html>

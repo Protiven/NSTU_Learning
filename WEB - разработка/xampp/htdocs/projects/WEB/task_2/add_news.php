@@ -28,7 +28,7 @@
 		</form>
 	</fieldset>
 <?php
-if(!empty($_POST))
+if(!empty($_POST) && !empty($_FILES))
 {
 	include("scrypts/add_to_sql.php");
 }

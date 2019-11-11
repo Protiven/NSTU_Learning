@@ -15,9 +15,9 @@
 		{    
 ?>
 
-<div class="News" style="display: block;">
+<div class="News" style="display: block; overflow:hidden;">
 	<h3><?=$row["title"]?></h3>
-	<div  class="N_img"><img style="width: 100%" src="<?=$row["addr_im"]?>" ></img></div>
+	<div  class="N_img"><img style="width: 100%;" src="<?=$row["addr_im"]?>" ></img></div>
 	<span>	
 	<?=$row["announce"]?>
 	<a class="text_href" href="detail_new.php?id=<?=$row["id"]?>">Подробнее</a>

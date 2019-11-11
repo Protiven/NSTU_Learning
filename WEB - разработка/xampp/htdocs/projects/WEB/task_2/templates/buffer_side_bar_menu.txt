@@ -1,4 +1,6 @@
 <?php
+	$flag_admin = false;
+	$auth_flag = false;
 	$res1;
 	if(isset($_POST['login']) && isset($_POST['password']))
 	{
@@ -12,18 +14,11 @@
 			$var2 = $res1['stat_admin'];
 			if($var2 == 1)
 			{
-				$_SESSION['FLAG_ADM'] = TRUE;
+				$flag_admin = true;
+				
 			}
-			setcookie("logged_user", $res1[], time()+ 600);
+			setcookie("num", $res1['login'], time()+ 600);
 			$_SESSION['logged_user'] = $res1;
-		}
-	}
-	if(isset($_GET['exit']))
-	{
-		if($_GET['exit'] == 1)
-		{
-			session_destroy();
-			$_GET['exit'] = 0;
 		}
 	}
 ?>
@@ -42,7 +37,7 @@
 			<li><a href="">Россия</a></li>
 		</ul>
 	</div>
-<?php	if(!isset($_SESSION['logged_user']))
+<?php	if($auth_flag == false || !isset($_SESSION['logged_user']) || !isset($_COOKIE['num']))
 		{	?>
 			<div class="login_menu">
 				<fieldset>
@@ -63,26 +58,18 @@
 				</fieldset>
 			</div>
 <?php	}else
-		{
-		$res1 = $_SESSION['logged_user'];	
-			?>
+		{?>
 		<div style="padding-left: 15px; font-size: 17px; font-family: cursive;">
 			<p>Здравствуйте, <?=$res1['l_name']?> <?=$res1['f_name']?>!</p>
 		</div>
-		<div style="padding-left: 15px; font-size: 17px; font-family: cursive;">
-			<p><a href="?exit=1">Выйти из профиля!</a></p>
-		</div>
 <?php	
-		}
-		if(isset($_SESSION['FLAG_ADM']))
-		{
-			if( $_SESSION['FLAG_ADM'] == true)
-			{?>
-				<div style="padding-left: 15px; font-size: 17px; font-family: cursive;">
-					<a href="add_news.php">Опубликовать новость!!!</a>
-				</div>
-<?php		}
-		}?>
+		}	
+		if($flag_admin == true)
+		{?>
+			<div style="padding-left: 15px; font-size: 17px; font-family: cursive;">
+				<a href="add_news.php">Опубликовать новость!!!</a>
+			</div>
+<?php	}?>
 	<div class="search_block">
 		<fieldset>
 			<legend>Поиск новостей</legend>
