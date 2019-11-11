@@ -1,0 +1,159 @@
+.label
+{
+	padding-top: 0px;
+	left: 0%;
+	width: 100%;
+	height: 5%;
+	margin: 0px;
+	background-color: white;
+	position: fixed;
+	z-index: 600;
+	font-size: 22px;
+	text-align: center;
+	box-shadow: 0 2px  2px black;
+}
+
+P.blocktext
+ {
+	margin-top: 8px;
+	font-family: Arial Black;
+}
+
+p.copyr
+{
+	text-align: center;
+	margin-top: 12px;
+}
+
+p
+{
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+span
+{
+	font-family:Courier;
+}
+
+body
+{
+	margin:0;
+}
+
+.sidebar_menu
+{
+	top: 5%;
+	min-width: 193px;
+	width: 25%;
+	height: 90%;
+	float: left;
+	position: fixed;
+	z-index: 500;
+	background-color:;
+	box-shadow: 2px 0  2px black;
+}
+
+
+.block_content
+{
+	margin-left: 25%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	width: 75%;
+	margin-top: 0%;
+	background-color: ;
+}
+
+.copyright_
+{
+	top: 95%;
+	width: 100%;
+	height: 5%;
+	background-color: white;
+	position: fixed;
+	z-index: 600;
+	box-shadow: 0 -2px 2px black;
+}
+
+.N_img
+{
+	float: left;
+	width: 20%;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	padding-right: 8px;
+}
+
+.news
+{
+	display: block;
+	min-height: 20%;
+	padding: 20px;
+	border-bottom: 1px solid grey;
+}
+
+div.date
+{
+	text-align:right;
+	width:100%;
+	font-family: Snell Roundhand, cursive;
+}
+
+.link_menu
+{
+	margin-top: 5px;
+	margin-bottom: 7px;
+}
+
+ul
+{
+	display: list-item;
+	text-decoration: none;
+	font-size: 17px;
+	font-family: cursive;
+}
+
+a
+{
+	text-decoration: none;	
+	color: black;
+}
+
+h3
+{
+	font-weight: 600;
+	font-family: Roboto;
+	margin: 0;
+	font-size: 23px;
+}
+
+form
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.login_menu
+{
+	font-family: Georgia;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+a.text_href
+{
+	text-decoration: underline;
+}
+
+.search_block
+{
+	font-family: Georgia;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.add_set_new
+{
+	width: 50%;
+}

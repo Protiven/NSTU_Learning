@@ -154,6 +154,11 @@
     <ClCompile Include="Lab_1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="al.txt" />
+    <Text Include="au.txt" />
+    <Text Include="b_vector.txt" />
+    <Text Include="di.txt" />
+    <Text Include="info.txt" />
     <Text Include="out.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

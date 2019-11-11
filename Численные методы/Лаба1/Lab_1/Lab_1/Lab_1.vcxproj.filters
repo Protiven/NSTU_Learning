@@ -23,5 +23,20 @@
     <Text Include="out.txt">
       <Filter>Исходные файлы</Filter>
     </Text>
+    <Text Include="b_vector.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="di.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="au.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="al.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="info.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
   </ItemGroup>
 </Project>

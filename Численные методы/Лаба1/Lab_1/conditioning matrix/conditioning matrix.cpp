@@ -91,6 +91,8 @@ void init_f()
    }
 
 
+
+
    fout.open(in_di);
    for (int i = 0; i < n_size; i++)
       fout << di[i] << endl;

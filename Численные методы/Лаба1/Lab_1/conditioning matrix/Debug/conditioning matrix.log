@@ -1,1 +1,17 @@
-﻿  conditioning matrix.vcxproj -> C:\Users\Слава\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\Debug\conditioning matrix.exe
+﻿  conditioning matrix.cpp
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(41,14): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(57,24): warning C4244: +=: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(57,24): warning C4244:         with
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(57,24): warning C4244:         [
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(57,24): warning C4244:             _Ty=float
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(57,24): warning C4244:         ]
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(76,40): warning C4244: +=: преобразование "_Ty" в "_Ty", возможна потеря данных
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(76,40): warning C4244:         with
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(76,40): warning C4244:         [
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(76,40): warning C4244:             _Ty=float
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(76,40): warning C4244:         ]
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(76,40): warning C4244:         and
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(76,40): warning C4244:         [
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(76,40): warning C4244:             _Ty=int
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\conditioning matrix\conditioning matrix.cpp(76,40): warning C4244:         ]
+  conditioning matrix.vcxproj -> C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Лаба1\Lab_1\Debug\conditioning matrix.exe
