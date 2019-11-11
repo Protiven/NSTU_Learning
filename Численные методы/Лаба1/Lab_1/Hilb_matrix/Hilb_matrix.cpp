@@ -24,17 +24,17 @@ void init_f()
 
 
    // Объявление и выделение памяти векторов и матрицы 
-   vector<float> vec_b(n_size);
-   vector<float> vec_x_star(n_size);
+   vector<double> vec_b(n_size);
+   vector<double> vec_x_star(n_size);
 
    for (int i = 0; i < n_size; i++)
       vec_x_star[i] = i + 1;
 
    //
    // Ориентироваться в матрице никак (x, y), а как запись индексации в обычных матрицах
-   vector< vector<float> > Up_m(n_size, vector<float>(m_size));
-   vector< vector<float> > L_m(n_size, vector<float>(m_size));
-   vector<float> di(n_size);
+   vector< vector<double> > Up_m(n_size, vector<double>(m_size));
+   vector< vector<double> > L_m(n_size, vector<double>(m_size));
+   vector<double> di(n_size);
    //   
 
 

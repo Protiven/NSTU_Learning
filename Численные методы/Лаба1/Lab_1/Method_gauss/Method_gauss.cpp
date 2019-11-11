@@ -9,7 +9,7 @@
 using namespace std;
 
 // Здесь меняется точность
-typedef double type_data;
+typedef float type_data;
 
 int n_size; // размерность матрицы
 
