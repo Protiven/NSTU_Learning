@@ -1,8 +1,5 @@
 <?php
 	session_start();
-	
-	setcookie("TEST", "example", time()+ 600);
-	
 	global $mysqli;
 	$mysqli = new mysqli('localhost', 'root', '', 'news_base');
 

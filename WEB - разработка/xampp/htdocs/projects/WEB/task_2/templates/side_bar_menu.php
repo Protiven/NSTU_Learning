@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$res1;
 	if(isset($_POST['login']) && isset($_POST['password']))
 	{
@@ -14,7 +15,6 @@
 			{
 				$_SESSION['FLAG_ADM'] = TRUE;
 			}
-			setcookie("logged_user", $res1[], time()+ 600);
 			$_SESSION['logged_user'] = $res1;
 		}
 	}

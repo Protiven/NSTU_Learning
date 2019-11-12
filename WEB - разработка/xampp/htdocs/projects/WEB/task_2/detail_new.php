@@ -8,12 +8,14 @@
 	}
 	else
 	{
-		$var = (int) $_GET['id'];
-		$result = $mysqli->query("SELECT `date`,`time`,`title`, `addr_im`, `full_text` FROM `data_news` WHERE `id` = '$var'" );
+		if(!empty($_GET['id']))
+		{	
+			$var = (int) $_GET['id'];
+			$result = $mysqli->query("SELECT `date`,`time`,`title`, `addr_im`, `full_text` FROM `data_news` WHERE `id` = '$var'" );
 
-		if($result!=false)
-		{
-		$row = $result->fetch_assoc();
+			if($result!=false)
+			{
+			$row = $result->fetch_assoc();
 
 ?>
 
@@ -30,11 +32,12 @@
 
 <?php
 
-}
-else
-{
-	echo "ОШИБКА!";
-}
+			}
+			else
+			{
+				echo "ОШИБКА!";
+			}
+		}
 }
 include("templates/footer.php");
 ?>
