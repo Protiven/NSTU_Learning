@@ -1,29 +1,48 @@
 <?php
-	session_start();
-	$res1;
-	if(isset($_POST['login']) && isset($_POST['password']))
+	$auth_flag = false;
+	$errors = "";
+	global $add_v;
+	$add_v = "";
+	if(!empty($_POST['login']) && !empty($_POST['password']))
 	{
 		$var = md5($_POST['password']);
 		$var1 = $_POST['login'];
 		$result = $mysqli->query("SELECT * FROM `pers_info` WHERE `login` = '$var1' && `pass` = '$var'");
-		if($result)
+		$res = $result->fetch_assoc();
+		if($res)
 		{
 			$auth_flag = true;
-			$res1 = $result->fetch_assoc();
+			$res1 = $res;
 			$var2 = $res1['stat_admin'];
 			if($var2 == 1)
 			{
 				$_SESSION['FLAG_ADM'] = TRUE;
 			}
+			else
+			{
+				$_SESSION['FLAG_ADM'] = false;
+			}
 			$_SESSION['logged_user'] = $res1;
 		}
-	}
-	if(isset($_GET['exit']))
-	{
-		if($_GET['exit'] == 1)
+		else
 		{
-			session_destroy();
-			$_GET['exit'] = 0;
+			$errors = "Неправильно введён логин или пароль!";
+		}
+		
+		unset($_POST['login']);
+		unset($_POST['password']);
+	}
+	else
+	{
+		if(!empty($_POST['login']) && empty($_POST['password']))
+		{
+			$errors = "Введите пароль!";
+			$add_v = $_POST['login'];
+		}
+		elseif(!empty($_POST['password']) && empty($_POST['login']))
+		{
+			$errors = "Введите логин!";
+			unset($_POST['password']);
 		}
 	}
 ?>
@@ -43,17 +62,18 @@
 		</ul>
 	</div>
 <?php	if(!isset($_SESSION['logged_user']))
-		{	?>
+		{	?>	
+			<div class="menu_auth"><?=$errors?></div>
 			<div class="login_menu">
 				<fieldset>
 					<form method="post" action = "">
 						<p>
 							<label>Введите логин:</label><br/>
-							<input type="text" name="login" size="17" maxlength="30"/>
+							<input type="text" name="login" value="<?=$add_v?>" size="17" maxlength="30"/>
 						</p>
 						<p>
 							<label>Введите пароль:</label><br/>
-							<input type="password" name="password" size="17" maxlength="30"/>
+							<input type="password" name="password" value="" size="17" maxlength="30"/>
 						</p>
 						<input type="submit" value="Подтвердить">
 						<p style="text-decoration: underline;">
@@ -62,27 +82,28 @@
 					</form>
 				</fieldset>
 			</div>
+		
 <?php	}else
 		{
 		$res1 = $_SESSION['logged_user'];	
 			?>
-		<div style="padding-left: 15px; font-size: 17px; font-family: cursive;">
+		<div class="menu_auth">
 			<p>Здравствуйте, <?=$res1['l_name']?> <?=$res1['f_name']?>!</p>
+		<?php	
+			if(isset($_SESSION['FLAG_ADM']))
+			{
+				if( $_SESSION['FLAG_ADM'] == true)
+				{?>
+						<a href="add_news.php">Опубликовать новость</a>
+<?php			}
+			}?>
+			<p><a href="?exit=1">Выйти из профиля</a></p>
 		</div>
-		<div style="padding-left: 15px; font-size: 17px; font-family: cursive;">
-			<p><a href="?exit=1">Выйти из профиля!</a></p>
-		</div>
-<?php	
-		}
-		if(isset($_SESSION['FLAG_ADM']))
-		{
-			if( $_SESSION['FLAG_ADM'] == true)
-			{?>
-				<div style="padding-left: 15px; font-size: 17px; font-family: cursive;">
-					<a href="add_news.php">Опубликовать новость!!!</a>
-				</div>
-<?php		}
-		}?>
+<?php   }
+	if(isset($errors))
+		unset($errors);
+	unset($_POST);
+	?>
 	<div class="search_block">
 		<fieldset>
 			<legend>Поиск новостей</legend>
@@ -99,4 +120,3 @@
 		</fieldset>
 	</div>
 </div>
-		

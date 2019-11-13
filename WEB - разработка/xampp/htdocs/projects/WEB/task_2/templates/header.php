@@ -7,7 +7,6 @@
 	{
 		if($_GET['exit'] == 1)
 		{
-			session_destroy();
 			$_GET['exit'] = 0;
 		}
 	}
