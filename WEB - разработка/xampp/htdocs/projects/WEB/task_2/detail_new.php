@@ -1,7 +1,8 @@
 <?php
 	include("templates/header.php");
 	include("templates/side_bar_menu.php");
-
+	$row1=$_GET['id'];
+	
 	if (!$mysqli)
 	{
 	echo "Не удалось подключиться к MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -26,6 +27,9 @@
 		<span>
 			<?=$row['full_text']?>
 		</span>
+		<?php if(isset($_SESSION['logged_user']) && isset($_SESSION['FLAG_ADM']) && $_SESSION['FLAG_ADM'] == true){?>
+		<a class="text_href" style="font-family: Arial; font-weight: 500" href="change_new.php?id=<?=$row1?>"> (Изменить публикацию)</a>
+		<?php }?>
 		<div class="date"><?=$row['date']?> <?=$row['time']?></div>
 	</div>
 </div>

@@ -20,8 +20,10 @@
 	<div  class="N_img"><img style="width: 100%;" src="<?=$row["addr_im"]?>" ></img></div>
 	<span>	
 	<?=$row["announce"]?>
-	<a class="text_href" href="detail_new.php?id=<?=$row["id"]?>">Подробнее</a>
-	</span>
+	<a class="text_href" href="detail_new.php?id=<?=$row["id"]?>">..Подробнее</a><br /><br />
+	<?php if(isset($_SESSION['logged_user']) && isset($_SESSION['FLAG_ADM']) && $_SESSION['FLAG_ADM'] == true){?>
+		<a class="text_href" style="font-family: Arial; font-weight: 500" href="change_new.php?id=<?=$row["id"]?>"> (Изменить публикацию)</a>
+	<?php }?></span>
 	<div style="text-align:right; width:100%; font-family: Snell Roundhand, cursive;"><?=$row["date"]?> <?=$row["time"]?></div>
 </div>
 
