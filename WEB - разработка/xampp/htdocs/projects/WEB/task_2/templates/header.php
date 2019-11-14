@@ -7,7 +7,8 @@
 	{
 		if($_GET['exit'] == 1)
 		{
-			session_destroy();
+			unset($_SESSION['logged_user']);
+			unset($_SESSION['FLAG_ADM']);
 			$_GET['exit'] = 0;
 		}
 	}

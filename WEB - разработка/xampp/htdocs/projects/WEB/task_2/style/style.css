@@ -136,6 +136,7 @@ form
 
 .login_menu
 {
+	margin-top:15px;
 	font-family: Georgia;
 	font-size: 16px;
 	margin-bottom: 10px;
@@ -148,6 +149,7 @@ a.text_href
 
 .search_block
 {
+	margin-top: 15px;
 	font-family: Georgia;
 	font-size: 16px;
 	margin-bottom: 10px;
@@ -162,4 +164,11 @@ img
 {
 	-o-object-fit: cover;
     object-fit: cover;
+}
+
+div.menu_auth
+{
+	padding-left: 15px; 
+	font-size: 19px; 
+	font-family: calibri;
 }
