@@ -144,9 +144,7 @@ namespace Task_2
     {
         public static IPerson ReadPerson(string i)
         {
-            string
-
-            flag, k;
+            string flag, k;
             IPerson t;
 
             flag = i.Substring(0, 1);

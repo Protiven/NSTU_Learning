@@ -200,7 +200,7 @@ namespace Laba3
         public override double Compute(IReadOnlyDictionary<string, double> variableValues)
         {
             double sup = Arg1.Compute(variableValues);
-            if (sup > -1 && sup < 1)
+            if (sup >= -1 && sup <= 1)
                 return Math.Asin(sup);
             else throw new ArgumentException("Нет решения!");
         }
@@ -374,45 +374,17 @@ namespace Laba3
 
             Expr expr = Sqrt(9) + a + b + Sin(c) + Cos(c);
 
-            Console.WriteLine(" ");
-            Console.WriteLine(expr);
+
+            Console.WriteLine("Переменные!");
+            
+            foreach (var k in expr.Variables)
+                Console.Write($"{k} ");
+            Console.WriteLine($"Vars: [{string.Join(", ", expr.Variables)}]");
+            
             Console.WriteLine("Выражение постоянно? {0}", expr.IsConstant);
             Console.WriteLine($"Выражение полином? {expr.IsPolynom}");
             Console.WriteLine($" = { expr.Compute(new Dictionary<string, double> { ["a"] = 5, ["b"] = 2.5, ["c"] = 0 })}");
-
-
-
-            var h = new Variable("h");
-
-            Expr expr1 = Tanh(h) * CTanh(h);
-
-            Console.WriteLine(" ");
-            Console.WriteLine(expr1);
-            Console.WriteLine("Выражение постоянно? {0}", expr1.IsConstant);
-            Console.WriteLine($"Выражение полином? {expr1.IsPolynom}");
-            Console.WriteLine($" = { expr1.Compute(new Dictionary<string, double> { ["h"] = 2 })}");
-
-
-            Expr expr2 = a + b;
-
-            Console.WriteLine(" ");
-            Console.WriteLine(expr2);
-            Console.WriteLine("Выражение постоянно? {0}", expr2.IsConstant);
-            Console.WriteLine($"Выражение полином? {expr2.IsPolynom}");
-            Console.WriteLine($" = { expr2.Compute(new Dictionary<string, double> { ["a"] = 2, ["b"] = 1 })}");
-
-
-            var z = new Constant(2);
-            var g = new Constant(2);
-
-            Expr expr3 = z + g;
-
-            Console.WriteLine(" ");
-            Console.WriteLine(expr3);
-            Console.WriteLine("Выражение постоянно? {0}", expr3.IsConstant);
-            Console.WriteLine($"Выражение полином? {expr3.IsPolynom}");
-            Console.WriteLine($" = { expr3.Compute(new Dictionary<string, double> {  })}");
-
+            
             Console.ReadKey();
         }
     }
