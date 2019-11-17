@@ -8,7 +8,7 @@
 	}
 	else
 	{
-		$result = $mysqli->query('SELECT `announce`,`date`,`time`,`title`, `addr_im`, `id` FROM `data_news` ORDER BY `date` LIMIT 10' );
+		$result = $mysqli->query('SELECT `announce`,`date`,`time`,`title`, `addr_im`, `id` FROM `data_news` ORDER BY `date` DESC LIMIT 10' );
 
 		
 		while ($row = $result->fetch_assoc()) 

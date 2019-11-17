@@ -2,12 +2,13 @@
 	include("templates/header.php");
 	include("templates/side_bar_menu.php");
 	include("templates/footer.php");
+	
 ?>
 
 <div class="block_content" style="padding-left: 20px; width: 70%; padding-right: 20px;">
 	<fieldset>
 	<legend class="add_news_">Добавить новость</legend>
-		<form method="post" action = "add_news.php" enctype="multipart/form-data">
+		<form method="post" action = "scrypts/add_to_sql.php" enctype="multipart/form-data">
 		<p>
 			<label>Введите название новости:</label><br/>
 			<input type="text" name="title_n" size="30"/>
@@ -27,10 +28,4 @@
 			<input type="submit" value="Подтвердить">
 		</form>
 	</fieldset>
-<?php
-if(!empty($_POST) && !empty($_FILES))
-{
-	include("scrypts/add_to_sql.php");
-}
-?>
 </div>

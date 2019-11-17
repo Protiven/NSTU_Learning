@@ -1,4 +1,5 @@
 <?php
+	$mysqli = new mysqli('localhost', 'root', '', 'news_base');
 if (!$mysqli)
 {
 ?>
@@ -43,5 +44,7 @@ alert("Все окей!");
 </script>
 <?php
 	}
+	header('Location: /projects/WEB/task_2/');
+	exit;
 }
 ?>
