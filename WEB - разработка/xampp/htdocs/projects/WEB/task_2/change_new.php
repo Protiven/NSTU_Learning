@@ -4,7 +4,8 @@
 	include("templates/footer.php");
 
 	global $var_id;
-	$var_id = $_GET['id'];
+	if(!empty($_GET['id']))
+		$var_id = $_GET['id'];
 	$result = $mysqli->query("SELECT * FROM `data_news` WHERE `id` = '$var_id'" );
 	//`id`, `title`, `announce`, `date`, `time`, `full_text`, `addr_im`, `tags`
 	
@@ -14,13 +15,12 @@
 	$var_full_text= $res['full_text'];
 	$var_addr_im= $res['addr_im'];
 	
-	var_dump($_POST);
 ?>
 
 <div class="block_content" style="padding-left: 20px; width: 70%; padding-right: 20px; padding-top: 7%">
 	<fieldset>
 		<legend class="add_news">Изменить новость</legend>
-		<form method="post" action="change_new.php?id=<?=$var_id?>" enctype="multipart/form-data">
+		<form method="GET" action="change_new.php?id=<?=$var_id?>" enctype="multipart/form-data">
 		<p>
 			<label>Название новости:</label><br/>
 			<input type="text" name="title_n" value="<?=$var_title?>" size="30"/>
@@ -41,7 +41,7 @@
 		</form>
 	</fieldset>
 <?php
-if(!empty($_POST))
+if(!empty($_GET['title_n']))
 { 
 
 	include("scrypts/change_to_sql.php");
