@@ -14,9 +14,9 @@ MOV EBP, ESP
 
 
 ; разложили все параметры процедуры по буферам
-MOV EAX, [EBP+8]
+MOV EAX, [EBP + 8]
 MOV BUF, EAX
-MOV EAX, [EBP+12]
+MOV EAX, [EBP + 12]
 MOV RES, EAX
 MOV EAX, [EBP + 16]
 MOV LEN,EAX 
@@ -29,8 +29,6 @@ DEC POS
 ; Сдвиг на позицию pos
 MOV esi, BUF
 ADD esi, POS; В esi ПО ИДЕЕ ЛЕЖИТ СТРОКА, СДВИНУТАЯ НА POS
-
-
 
 cld 
 mov edi, res
