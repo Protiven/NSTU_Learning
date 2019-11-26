@@ -24,7 +24,19 @@
 		$n_full = $_POST['not_full_n'];
 		$full = $_POST['full_n'];
 
-		$mysqli->query("UPDATE `data_news` SET `announce` = '$n_full', `title` = '$title_n', `full_text` = '$full'  WHERE `data_news`.`id` = '$index'");
+		if(!$stmt = $mysqli->prepare("UPDATE `data_news` SET `announce` = (?), `title` = (?), `full_text` = (?)  WHERE `data_news`.`id` = (?)"))
+			echo "Не удалось подготовить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
+		else
+		{
+			if(!$stmt->bind_param("sssi", $n_full, $title_n, $full, $index))
+				echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+			else
+			{
+				if (!$stmt->execute())
+					echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+			}
+		}
+		// $n_full, $title_n, $full, $index
 	}
 ?>
 <script type="text/javascript">	
