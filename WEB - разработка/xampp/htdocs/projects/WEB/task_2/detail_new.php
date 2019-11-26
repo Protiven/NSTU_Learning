@@ -23,7 +23,7 @@
 <div class="block_content">
 	<div class="News" style="display: table-cell">
 		<h3><?=$row['title']?></h3>
-		<div class="N_img add_set_new" ><img style="width:100%;" src="<?=$row['addr_im']?>" ></img></div>
+		<div class="N_img add_set_new" ><img class="Image_news" style="width:100%;" src="<?=$row['addr_im']?>" ></img></div>
 		<span>
 			<?=$row['full_text']?>
 		</span>
