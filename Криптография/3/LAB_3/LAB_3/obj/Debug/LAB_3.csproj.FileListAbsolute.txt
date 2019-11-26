@@ -4,3 +4,9 @@ C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\3\
 C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\3\LAB_3\LAB_3\obj\Debug\LAB_3.csprojAssemblyReference.cache
 C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\3\LAB_3\LAB_3\obj\Debug\LAB_3.exe
 C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\3\LAB_3\LAB_3\obj\Debug\LAB_3.pdb
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Криптография\3\LAB_3\LAB_3\bin\Debug\LAB_3.exe.config
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Криптография\3\LAB_3\LAB_3\bin\Debug\LAB_3.exe
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Криптография\3\LAB_3\LAB_3\bin\Debug\LAB_3.pdb
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Криптография\3\LAB_3\LAB_3\obj\Debug\LAB_3.csprojAssemblyReference.cache
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Криптография\3\LAB_3\LAB_3\obj\Debug\LAB_3.exe
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Криптография\3\LAB_3\LAB_3\obj\Debug\LAB_3.pdb

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
+
 namespace LAB_3
 {
     class Program
@@ -21,16 +22,11 @@ namespace LAB_3
                     rsa,
                     HashAlgorithmName.SHA256,
                     RSASignaturePadding.Pkcs1);
-
-
-               
+                
                 var cert1 = req1.CreateSelfSigned(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow);
-                
-                
-                
-                
-                //var cert2 = req2.CreateSelfSigned(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow);
 
+
+            
                 File.WriteAllBytes("test.cer", cert1.Export(X509ContentType.Cert));
                 File.WriteAllBytes("test.pem", cert1.Export(X509ContentType.Pkcs12));
             }
@@ -43,24 +39,16 @@ namespace LAB_3
             Console.WriteLine("Введите имя файла и сертификата с закрытым ключом.");
             string[] str = Console.ReadLine().Split(); // 0 - файл, 1 - сертификат
             string sgn_name = str[0].Split('.')[0] + ".sgn";
-            
-            // Получение байт изображения
-            Bitmap image = new Bitmap(str[0]);
-            System.IO.MemoryStream memoryStream = new System.IO.MemoryStream();
-            image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
-            byte[] b_file = memoryStream.ToArray();
 
-            // Хэш-сумма файла
-            var hash = HashAlgorithm.Create("SHA-256");
-            hash.ComputeHash(b_file);
+            // Получение байт изображения
+            var b_file = File.ReadAllBytes(str[0]);
 
             // Шифрование Хэш-суммы
             var cert = new X509Certificate2(str[1]);
-            RSACryptoServiceProvider crypt = (RSACryptoServiceProvider)cert.PrivateKey;
-            Byte[] encryption_hash = crypt.Encrypt(Encoding.ASCII.GetBytes(hash.ToString()), true);
+            var podpis = cert.GetRSAPrivateKey().SignData(b_file, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
 
             // Вывод подписи
-            File.WriteAllBytes(sgn_name, encryption_hash);
+            File.WriteAllBytes(sgn_name, podpis);
            
             return 1;
         }
@@ -69,39 +57,35 @@ namespace LAB_3
         {
             Console.WriteLine("Введите имя файла и имя хэша.");
             string[] str = Console.ReadLine().Split(); // 0 - файл, 1 - сертификат
-
+            
             // Получение байт изображения
-            Bitmap image = new Bitmap(str[0]);
-            System.IO.MemoryStream memoryStream = new System.IO.MemoryStream();
-            image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
-            byte[] b_file = memoryStream.ToArray();
-
+            var b_file = File.ReadAllBytes(str[0]);
+            
             // Хэш-сумма файла
             var hash = HashAlgorithm.Create("SHA-256");
-            hash.ComputeHash(b_file);
+            b_file = hash.ComputeHash(b_file);
 
-            File.WriteAllText(str[1], hash.ToString());
-
+            File.WriteAllBytes(str[1], b_file);
             return 1;
         }
 
         static protected int program_3() // Валидация подписи
         {
-            Console.WriteLine("Введите имя файла, имя хэша, имя сертификата.");
+            Console.WriteLine("Введите имя подписи, имя файла, имя сертификата.");
             string[] str = Console.ReadLine().Split();
-            string sgn_name = str[0].Split('.')[0] + ".sgn";
+            string sgn_name = str[0];
 
             // Получение подписи
-            string hash_str = File.ReadAllText(sgn_name);
+            byte[] podpis_bytes = File.ReadAllBytes(sgn_name);
+
+            // Получение хэш-суммы изображения
+            var b_file = File.ReadAllBytes(str[1]);
 
             // Расшифровка подписи с помощью сертифика
             var cert = new X509Certificate2(str[2]);
-            RSACryptoServiceProvider publicKeyProvider = (RSACryptoServiceProvider)cert.PublicKey.Key;
-            Byte[] decryption_hash = publicKeyProvider.Decrypt(Encoding.ASCII.GetBytes(hash_str), true);
-            string decr_hash_str = Convert.ToString(decryption_hash);
-
-            // Считываем Хэш файла
-            string hash_origin = File.ReadAllText(str[1]);
+            
+            if (cert.GetRSAPublicKey().VerifyData(b_file, podpis_bytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1))
+                Console.WriteLine("Четкая подпись!");
             return 1;
         }
         static void Main()
@@ -129,6 +113,7 @@ namespace LAB_3
 
             if (!flag)
                 Console.WriteLine("Программа завершилась некорректно!");
+            Console.ReadKey();
         }
     }
 }
