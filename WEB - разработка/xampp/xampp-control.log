@@ -338,3 +338,30 @@
 0:48:15  [main] 	Deinitializing Modules
 0:48:15  [main] 	Deinitializing Control Panel
 
+16:56:34  [main] 	Initializing Control Panel
+16:56:34  [main] 	Windows Version:  Enterprise  64-bit
+16:56:34  [main] 	XAMPP Version: 7.1.32
+16:56:34  [main] 	Control Panel Version: 3.2.4  [ Compiled: Jun 5th 2019 ]
+16:56:34  [main] 	You are not running with administrator rights! This will work for
+16:56:34  [main] 	most application stuff but whenever you do something with services
+16:56:34  [main] 	there will be a security dialogue or things will break! So think 
+16:56:34  [main] 	about running this application with administrator rights!
+16:56:34  [main] 	XAMPP Installation Directory: "c:\users\Слава\documents\github\nstu_learning\web - разработка\xampp\"
+16:56:34  [main] 	WARNING: Your install directory contains spaces.  This may break programs/scripts
+16:56:34  [main] 	Checking for prerequisites
+16:56:34  [main] 	All prerequisites found
+16:56:34  [main] 	Initializing Modules
+16:56:34  [main] 	Starting Check-Timer
+16:56:34  [main] 	Control Panel Ready
+16:56:38  [Apache] 	Attempting to start Apache app...
+16:56:38  [Apache] 	Status change detected: running
+16:56:47  [mysql] 	Attempting to start MySQL app...
+16:56:47  [mysql] 	Status change detected: running
+17:02:31  [Apache] 	Attempting to stop Apache (PID: 9640)
+17:02:31  [Apache] 	Attempting to stop Apache (PID: 12904)
+17:02:32  [Apache] 	Status change detected: stopped
+17:02:32  [mysql] 	Attempting to stop MySQL app...
+17:02:33  [mysql] 	Status change detected: stopped
+11:39:56  [main] 	Deinitializing Modules
+11:39:56  [main] 	Deinitializing Control Panel
+

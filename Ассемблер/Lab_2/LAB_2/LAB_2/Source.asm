@@ -38,6 +38,6 @@ xor eax, eax
 mov [edi], eax
 
 POP EBP
-RET
+RET 0
 _FUNC ENDP
 END
