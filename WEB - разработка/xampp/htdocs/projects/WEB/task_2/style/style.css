@@ -50,7 +50,6 @@ body
 	float: left;
 	position: fixed;
 	z-index: 500;
-	background-color:;
 	box-shadow: 2px 0  2px black;
 }
 
@@ -62,7 +61,6 @@ body
 	padding-bottom: 5%;
 	width: 75%;
 	margin-top: 0%;
-	background-color: ;
 }
 
 .copyright_
@@ -171,4 +169,23 @@ div.menu_auth
 	padding-left: 15px; 
 	font-size: 19px; 
 	font-family: calibri;
+}
+
+.hidden_block_for_image
+{
+	width: 100%;
+	z-index: -3; 
+	opacity: 0; 
+	height: 100%; 
+	position: fixed;
+}
+
+
+.block_supp_h
+{
+	border-image: ;
+	margin-top: 15%;
+	margin-bottom: 15%;
+	margin-left: 20%;
+	width: 60%;
 }
