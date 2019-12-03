@@ -1,3 +1,29 @@
+.Sidebar_sets
+{
+	margin: 15px;
+}
+
+.border-d
+{
+	box-shadow: 0 -2px 2px black;
+	z-index: 100;
+}
+
+.border-r
+{
+	box-shadow: 2px 0 2px black;
+	z-index: 0;
+}
+
+.border-t
+{
+	box-shadow: 0 2px 2px black;
+	margin: 0; 
+	z-index: 100;
+}
+
+
+
 .label
 {
 	padding-top: 0px;

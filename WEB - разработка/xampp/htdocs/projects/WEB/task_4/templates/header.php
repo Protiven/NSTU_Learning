@@ -27,4 +27,4 @@
 </head>
 <body>
 
-	<div class="row" style="margin: 0;"><P>Новости</P></div>
+	<div class="row border-d" style="margin: 0; z-index: 100;"><h1 class="display-4" style="margin:10px;">Новости</h1></div>

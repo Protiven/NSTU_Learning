@@ -47,25 +47,25 @@
 	}
 ?>
 <div class="row">
-	<div class="col" style="float: left;">
-		<div>
-			<nav class="navbar navbar-default">
-				<div class="navbar-header navbar-brand">Меню</div>		
-				<ul class="nav navbar-nav">
+	<div class="col border-r">
+		<div class="Sidebar_sets">
+			<nav class="sidebar-sticky bg-dark navbar-dark " style="padding: 7px;">
+				<div class="navbar-brand">Меню</div>		
+				<ul class="navbar-nav ">
 					<a class="navbar-brand" href="index.php">Главная страница</a>
-					<li><a href="">Спорт</a></li>
-					<li><a href="">Политика</a></li>
-					<li><a href="">Экономика</a></li>
-					<li><a href="">Шоу-бизнес</a></li>
-					<li><a href="">Культура</a></li>
-					<li><a href="">Наука и техника</a></li>
-					<li><a href="">Россия</a></li>
+					<li class="nav-item"><a class="nav-link" href="">Спорт</a></li>
+					<li class="nav-item"><a class="nav-link" href="">Политика</a></li>
+					<li class="nav-item"><a class="nav-link" href="">Экономика</a></li>
+					<li class="nav-item"><a class="nav-link" href="">Шоу-бизнес</a></li>
+					<li class="nav-item"><a class="nav-link" href="">Культура</a></li>
+					<li class="nav-item"><a class="nav-link" href="">Наука и техника</a></li>
+					<li class="nav-item"><a class="nav-link" href="">Россия</a></li>
 				</ul>
 			</nav>
 		<?php	if(!isset($_SESSION['logged_user']))
 				{	?>	
-					<div class=""><?=$errors?></div>
-					<div class="">
+					<div class="Sidebar_sets"><?=$errors?></div>
+					<div class="Sidebar_sets">
 						<fieldset>
 							<form method="post" action = "">
 								<p>
@@ -88,7 +88,7 @@
 			{
 			$res1 = $_SESSION['logged_user'];	
 				?>
-			<div class="">
+			<div class="Sidebar_sets">
 				<p>Здравствуйте, <?=$res1['l_name']?> <?=$res1['f_name']?>!</p>
 			<?php	
 				if(isset($_SESSION['FLAG_ADM']))
@@ -105,7 +105,7 @@
 			unset($errors);
 		unset($_POST);
 		?>
-			<div class="">
+			<div class="Sidebar_sets">
 				<fieldset>
 					<legend>Поиск новостей</legend>
 					<form method="post" action="">
