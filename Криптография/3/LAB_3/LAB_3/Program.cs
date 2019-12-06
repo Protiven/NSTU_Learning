@@ -69,23 +69,33 @@ namespace LAB_3
             return 1;
         }
 
-        static protected int program_3() // Валидация подписи
+        static protected int program_3() // Валидация подписи и хэша
         {
-            Console.WriteLine("Введите имя подписи, имя файла, имя сертификата.");
+            Console.WriteLine("Введите имя подписи, имя файла, имя сертификата, имя хэша.");
             string[] str = Console.ReadLine().Split();
             string sgn_name = str[0];
 
             // Получение подписи
             byte[] podpis_bytes = File.ReadAllBytes(sgn_name);
 
-            // Получение хэш-суммы изображения
+            // Получение Байт изображения
             var b_file = File.ReadAllBytes(str[1]);
 
             // Расшифровка подписи с помощью сертифика
             var cert = new X509Certificate2(str[2]);
             
-            if (cert.GetRSAPublicKey().VerifyData(b_file, podpis_bytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1))
-                Console.WriteLine("Четкая подпись!");
+            if (cert.GetRSAPublicKey().VerifyData(b_file, podpis_bytes, HashAlgorithmName.MD5, RSASignaturePadding.Pkcs1))
+                Console.WriteLine("Четкая подпись! (результат VerifyData)");
+            else
+                Console.WriteLine("НЕчеткая подпись! (результат VerifyData)");
+
+            var hash_b = File.ReadAllBytes(str[3]);
+
+
+            if (cert.GetRSAPublicKey().VerifyHash(hash_b, podpis_bytes, HashAlgorithmName.MD5, RSASignaturePadding.Pkcs1))
+                Console.WriteLine("Четкий хэш! (результат VerifyHash)");
+            else
+                Console.WriteLine("НЕчеткий хэш! (результат VerifyHash)"); ;
             return 1;
         }
         static void Main()
