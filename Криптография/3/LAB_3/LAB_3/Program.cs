@@ -84,18 +84,20 @@ namespace LAB_3
             // Расшифровка подписи с помощью сертифика
             var cert = new X509Certificate2(str[2]);
             
-            if (cert.GetRSAPublicKey().VerifyData(b_file, podpis_bytes, HashAlgorithmName.MD5, RSASignaturePadding.Pkcs1))
+            if (cert.GetRSAPublicKey().VerifyData(b_file, podpis_bytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1))
                 Console.WriteLine("Четкая подпись! (результат VerifyData)");
             else
                 Console.WriteLine("НЕчеткая подпись! (результат VerifyData)");
 
-            var hash_b = File.ReadAllBytes(str[3]);
+            var hash_b = File.ReadAllBytes(str[1]);
+            var hach_c = HashAlgorithm.Create("SHA256");
+            hash_b = hach_c.ComputeHash(hash_b);
 
 
-            if (cert.GetRSAPublicKey().VerifyHash(hash_b, podpis_bytes, HashAlgorithmName.MD5, RSASignaturePadding.Pkcs1))
+            if (cert.GetRSAPublicKey().VerifyHash(hash_b, podpis_bytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1))
                 Console.WriteLine("Четкий хэш! (результат VerifyHash)");
             else
-                Console.WriteLine("НЕчеткий хэш! (результат VerifyHash)"); ;
+                Console.WriteLine("НЕчеткий хэш! (результат VerifyHash)"); 
             return 1;
         }
         static void Main()
