@@ -1,0 +1,6 @@
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\4\Lab_4\Lab_4\bin\Debug\Lab_4.exe.config
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\4\Lab_4\Lab_4\bin\Debug\Lab_4.exe
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\4\Lab_4\Lab_4\bin\Debug\Lab_4.pdb
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\4\Lab_4\Lab_4\obj\Debug\Lab_4.csprojAssemblyReference.cache
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\4\Lab_4\Lab_4\obj\Debug\Lab_4.exe
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\4\Lab_4\Lab_4\obj\Debug\Lab_4.pdb
