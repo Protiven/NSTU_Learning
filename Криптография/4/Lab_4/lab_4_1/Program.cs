@@ -194,7 +194,6 @@ namespace lab_4_1
 
                 if (length_of_h != 0)
                 {
-                    //password_hash2 = password_hash2.Where((item, i) => i < length_of_h).ToArray();
                     Console.WriteLine("Введите имя шифрованного файла!");
                     var string1 = Console.ReadLine();
                     var bytes_fr_image = File.ReadAllBytes(string1);
