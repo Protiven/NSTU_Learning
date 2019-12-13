@@ -35,7 +35,7 @@ namespace lab_4_1
             return encrypted;
         }
 
-        public static byte[] AES_Decipher(byte[] password_hash2, byte[] cip_data)
+        public static byte[] AES_Decipher(byte[] password_hash2, byte[] cr_data)
         {
             password_hash2 = password_hash2.Where((item, i) => i < 16).ToArray();
             var crypt_AES = Aes.Create();
@@ -52,7 +52,7 @@ namespace lab_4_1
                 {
                     using (CryptoStream cs = new CryptoStream(ms, crypt, CryptoStreamMode.Write))
                     {
-                        cs.Write(cip_data, 0, cip_data.Length);
+                        cs.Write(cr_data, 0, cr_data.Length);
                     }
                     data = ms.ToArray();
                 }
@@ -121,28 +121,37 @@ namespace lab_4_1
                     int fl_beg = 0, fl_end = 0;
                     for (int i = 0; i < bytes_fr_image.Length; i++)
                     {
-                        if (bytes_fr_image[i] == 218)
-                            fl_beg = i + 1;
-                        else if (bytes_fr_image[i] == 255 && fl_beg != 0)
+                        if (fl_beg == 0)
                         {
-                            fl_end = i;
-                            break;
+                            if (bytes_fr_image[i] == 'I')
+                                if (bytes_fr_image[i + 1] == 'D')
+                                    if (bytes_fr_image[i + 2] == 'A')
+                                        if (bytes_fr_image[i + 3] == 'T')
+                                            fl_beg = i + 4;
                         }
+                        else
+                        {
+                            if (bytes_fr_image[i] == 'I')
+                                if (bytes_fr_image[i + 1] == 'E')
+                                    if (bytes_fr_image[i + 2] == 'N')
+                                        if (bytes_fr_image[i + 3] == 'D')
+                                        {
+                                            fl_end = i - 1;
+                                            break;
+                                        }
+                        }                      
                     }
 
-                    var bytes_data_im = new byte[fl_end - fl_beg];
-                    var supp = bytes_data_im.Length;
+                    var sup = fl_end - fl_beg;
+                    var bytes_data_im = new byte[sup];
 
-
-                    for (int i = 0; i < supp; i++)
+                    for (int i = 0; i < sup; i++)
                         bytes_data_im[i] = bytes_fr_image[i + fl_beg];
-
 
                     var crp_data = AES_Cipher(password_hash, bytes_data_im);
 
-                    for (int i = 0; i < supp; i++)
-                       bytes_fr_image[i + fl_beg] = crp_data[i];
-
+                    for (int i = 0; i < sup; i++)
+                        bytes_fr_image[i + fl_beg] = crp_data[i];
 
                     Console.WriteLine("Введите имя для результата шифрования!");
                     var string2 = Console.ReadLine();
@@ -194,12 +203,46 @@ namespace lab_4_1
 
                 if (length_of_h != 0)
                 {
-                    //password_hash2 = password_hash2.Where((item, i) => i < length_of_h).ToArray();
                     Console.WriteLine("Введите имя шифрованного файла!");
                     var string1 = Console.ReadLine();
                     var bytes_fr_image = File.ReadAllBytes(string1);
 
-                    var decr_data = AES_Decipher(password_hash2, bytes_fr_image);
+
+                    int fl_beg = 0, fl_end = 0;
+                    for (int i = 0; i < bytes_fr_image.Length; i++)
+                    {
+                        if (fl_beg == 0)
+                        {
+                            if (bytes_fr_image[i] == 'I')
+                                if (bytes_fr_image[i + 1] == 'D')
+                                    if (bytes_fr_image[i + 2] == 'A')
+                                        if (bytes_fr_image[i + 3] == 'T')
+                                            fl_beg = i + 4;
+                        }
+                        else 
+                        {
+                            if (bytes_fr_image[i] == 'I')
+                                if (bytes_fr_image[i + 1] == 'E')
+                                    if (bytes_fr_image[i + 2] == 'N')
+                                        if (bytes_fr_image[i + 3] == 'D')
+                                        {
+                                            fl_end = i - 1;
+                                            break;
+                                        }
+                        }
+                    }
+
+                    var sup = fl_end - fl_beg;
+                    var bytes_data_im = new byte[sup];
+
+                    for (int i = 0; i < sup; i++)
+                        bytes_data_im[i] = bytes_fr_image[i + fl_beg];
+
+
+                    var decr_data = AES_Decipher(password_hash2, bytes_data_im);
+
+                    for (int i = 0; i < sup; i++)
+                        bytes_fr_image[i + fl_beg] = decr_data[i];
 
                     Console.WriteLine("Введите имя для записи результата расшифровки!");
                     var string2 = Console.ReadLine();
