@@ -27,6 +27,8 @@
 		else
 		{
 			$errors = "Неправильно введён логин или пароль!";
+			if(!empty($_POST['login']))
+				$add_v = $_POST['login'];
 		}
 		
 		unset($_POST['login']);
