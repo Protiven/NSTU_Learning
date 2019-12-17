@@ -9,7 +9,54 @@
 		{
 			unset($_SESSION['logged_user']);
 			unset($_SESSION['FLAG_ADM']);
-			$_GET['exit'] = 0;
+            $_GET['exit'] = 0;
+            header('Location: /projects/WEB/task_4/');
+		}
+	}
+	$errors = "";
+	global $add_v;
+	$add_v = "";
+	if(!empty($_POST['login']) && !empty($_POST['password']))
+	{
+		$var = md5($_POST['password']);
+		$var1 = $_POST['login'];
+		$result = $mysqli->query("SELECT * FROM `pers_info` WHERE `login` = '$var1' && `pass` = '$var'");
+		$res = $result->fetch_assoc();
+		if($res)
+		{
+			$res1 = $res;
+			$var2 = $res1['stat_admin'];
+			if($var2 == 1)
+			{
+				$_SESSION['FLAG_ADM'] = TRUE;
+			}
+			else
+			{
+				$_SESSION['FLAG_ADM'] = false;
+			}
+			$_SESSION['logged_user'] = $res1;
+		}
+		else
+		{
+			$errors = "Неправильно введён логин или пароль!";
+			if(!empty($_POST['login']))
+				$add_v = $_POST['login'];
+		}
+		
+		unset($_POST['login']);
+		unset($_POST['password']);
+	}
+	else
+	{
+		if(!empty($_POST['login']) && empty($_POST['password']))
+		{
+			$errors = "Введите пароль!";
+			$add_v = $_POST['login'];
+		}
+		elseif(!empty($_POST['password']) && empty($_POST['login']))
+		{
+			$errors = "Введите логин!";
+			unset($_POST['password']);
 		}
 	}
 ?>
@@ -52,10 +99,34 @@
                             <!-- Login Search Area -->
                             <div class="login-search-area d-flex align-items-center">
                                 <!-- Login -->
+                             
+                                <?php	if(!isset($_SESSION['logged_user']))
+		                        {	?>	                             
                                 <div class="login d-flex">
-                                    <a href="#">Login</a>
+                                    <a class="login_act" href="login.php">Login</a>
                                     <a href="#">Register</a>
                                 </div>
+                                <?php } 
+                                else
+                                {
+                                    $res1 = $_SESSION['logged_user'];
+                                    ?>
+                                <div class="login d-flex">
+                                    <a href="#">Hello, <?=$res1['l_name']?> <?=$res1['f_name']?></a>
+                                <?php	
+                                    if(isset($_SESSION['FLAG_ADM']))
+                                    {
+                                        if( $_SESSION['FLAG_ADM'] == true)
+                                        {?>
+                                                <a href="add_news.php">Опубликовать новость</a>
+                                <?php	}
+                                    }?>
+                                    
+                                    <a href="?exit=1">Exit</a>
+                                </div>
+                                <?php
+                                }
+                                ?>
                                 <!-- Search Form -->
                                 <div class="search-form">
                                     <form action="#" method="post">

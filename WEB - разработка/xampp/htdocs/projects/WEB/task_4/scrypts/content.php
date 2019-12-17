@@ -25,7 +25,25 @@
 					</a>
 					<div class="post-meta">
 						<p class="post-author">By <a href="#">Admin</a></p>
-						<p class="post-excerp"> <?=$row['announce']?>
+						<p class="post-excerp"> <?=$row['announce']?></p>
+					<?php
+						if(isset($_SESSION['FLAG_ADM']))
+						{
+							if($_SESSION['FLAG_ADM'] == true)
+							{
+					?>
+					
+						<nav aria-label="Page navigation example">
+							<ul class="nav">
+								<li class="nav-item"><a class="nav-link" style="color: black;" href="change_new.php?id=<?=$row["id"]?>">Изменить новость</a></li>
+								<li class="nav-item"><a class="nav-link" style="color: black;" href="">Удалить новость</a></li>
+							</ul>
+						</nav>
+					<?php
+							}
+						}
+					?>
+					
 					</div>
 				</div>
 			</div>

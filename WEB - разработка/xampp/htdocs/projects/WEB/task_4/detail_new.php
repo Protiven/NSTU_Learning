@@ -30,6 +30,23 @@
 						</a>
 						<div class="post-meta">
 							<p><?=$row['full_text']?></p>
+							<?php
+								if(isset($_SESSION['FLAG_ADM']))
+								{
+									if($_SESSION['FLAG_ADM'] == true)
+									{
+							?>
+							
+								<nav aria-label="Page navigation example">
+									<ul class="nav">
+										<li class="nav-item"><a class="nav-link" style="color: black;" href="change_new.php?id=<?=$row["id"]?>">Изменить новость</a></li>
+										<li class="nav-item"><a class="nav-link" style="color: black;" href="">Удалить новость</a></li>
+									</ul>
+								</nav>
+							<?php
+									}
+								}
+							?>
 							<div class="newspaper-post-like d-flex align-items-center justify-content-between">
 							</div>
 						</div>

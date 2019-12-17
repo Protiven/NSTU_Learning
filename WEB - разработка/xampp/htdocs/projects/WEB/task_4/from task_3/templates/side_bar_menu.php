@@ -1,5 +1,4 @@
 <?php
-	$auth_flag = false;
 	$errors = "";
 	global $add_v;
 	$add_v = "";
@@ -11,7 +10,6 @@
 		$res = $result->fetch_assoc();
 		if($res)
 		{
-			$auth_flag = true;
 			$res1 = $res;
 			$var2 = $res1['stat_admin'];
 			if($var2 == 1)

@@ -78,7 +78,7 @@ namespace Lab_4
                 int p = Console.Read();
                 Console.ReadLine();
 
-                int length_of_h;
+                bool flag = true;
                 byte[] password_hash = new byte[32];
 
                 switch (p)
@@ -87,32 +87,28 @@ namespace Lab_4
                         {
                             var hash_sha256 = HashAlgorithm.Create("SHA256");
                             password_hash = hash_sha256.ComputeHash(password_byte);
-                            length_of_h = 32;
                             break;
                         }
                     case '2':
                         {
                             var hash_sha1 = HashAlgorithm.Create("SHA1");
                             password_hash = hash_sha1.ComputeHash(password_byte);
-                            length_of_h = 20;
                             break;
                         }
                     case '3':
                         {
                             var hash_md5 = HashAlgorithm.Create("MD5");
                             password_hash = hash_md5.ComputeHash(password_byte);
-                            length_of_h = 16;
                             break;
                         }
                     default:
-                        length_of_h = 0;
+                        flag = false;
                         break;
                 }
 
-                if (length_of_h != 0)
+                if (flag)
                 {
-                    //password_hash = password_hash.Where((item, i) => i < length_of_h).ToArray();
-
+                 
                     Console.WriteLine("Введите имя оригинального файла!");
                     var string1 = Console.ReadLine();
                     var bytes_fr_image = File.ReadAllBytes(string1);
@@ -136,8 +132,8 @@ namespace Lab_4
                 Console.ReadLine();
 
 
-                int length_of_h;
                 byte[] password_hash2 = new byte[32];
+                bool flag = true;
 
                 switch (p)
                 {
@@ -145,37 +141,33 @@ namespace Lab_4
                         {
                             var hash_sha256 = HashAlgorithm.Create("SHA256");
                             password_hash2 = hash_sha256.ComputeHash(password_byte2);
-                            length_of_h = 32;
                             break;
                         }
                     case '2':
                         {
                             var hash_sha1 = HashAlgorithm.Create("SHA1");
                             password_hash2 = hash_sha1.ComputeHash(password_byte2);
-                            length_of_h = 20;
                             break;
                         }
                     case '3':
                         {
                             var hash_md5 = HashAlgorithm.Create("MD5");
                             password_hash2 = hash_md5.ComputeHash(password_byte2);
-                            length_of_h = 16;
                             break;
                         }
                     default:
-                        length_of_h = 0;
+                        flag = false;
                         break;
                 }
 
-                if (length_of_h != 0)
+                if (flag)
                 {
-                    //password_hash2 = password_hash2.Where((item, i) => i < length_of_h).ToArray();
                     Console.WriteLine("Введите имя шифрованного файла!");
                     var string1 = Console.ReadLine();
                     var bytes_fr_image = File.ReadAllBytes(string1);
 
                     var decr_data = AES_Decipher(password_hash2, bytes_fr_image);
-                    
+
                     Console.WriteLine("Введите имя для записи результата расшифровки!");
                     var string2 = Console.ReadLine();
 

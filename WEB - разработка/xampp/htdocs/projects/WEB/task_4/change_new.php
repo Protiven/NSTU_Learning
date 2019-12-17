@@ -1,7 +1,5 @@
 <?php
 	include("templates/header.php");
-	include("templates/side_bar_menu.php");
-	include("templates/footer.php");
 
 	global $var_id;
 	if(!empty($_GET['id']))
@@ -44,10 +42,12 @@
 			<input type="submit" value="Подтвердить">
 		</form>
 	</fieldset>
-<?php
-if(!empty($_POST['title_n']))
-{ 
-	include("scrypts/change_to_sql.php");
-}
-?>
 </div>
+</div>
+<?php
+	if(!empty($_POST['title_n']))
+	{ 
+		include("scrypts/change_to_sql.php");
+	}
+	include("templates/footer.php");
+?>

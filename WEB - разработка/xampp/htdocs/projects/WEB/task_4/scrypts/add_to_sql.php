@@ -56,7 +56,7 @@ alert("Все окей!");
 </script>
 <?php
 	}
-	header('Location: /projects/WEB/task_2/');
+	header('Location: /projects/WEB/task_4/');
 	exit;
 }
 ?>
