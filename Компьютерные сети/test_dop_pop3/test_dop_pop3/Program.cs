@@ -27,10 +27,10 @@ namespace test_dop_pop3
             using (OpenPop.Pop3.Pop3Client client = new Pop3Client())
             {
                 // Подключение к серверу
-                client.Connect("pop.gmail.com", 995, true);
+                client.Connect("cn.ami.nstu.ru", 995, true);
 
                 // Аутентификация (проверка логина и пароля)
-                client.Authenticate("vostrikovva98@gmail.com", "*****", AuthenticationMethod.UsernameAndPassword);
+                client.Authenticate("b4@cn.ami.nstu.ru", "Aayu2uon", AuthenticationMethod.UsernameAndPassword);
 
                 if (client.Connected)
                 {
