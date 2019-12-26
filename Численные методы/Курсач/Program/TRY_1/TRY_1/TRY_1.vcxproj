@@ -149,12 +149,6 @@
   <ItemGroup>
     <ClCompile Include="TRY_1.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="Area.txt" />
-    <Text Include="GridX.txt" />
-    <Text Include="GridY.txt" />
-    <Text Include="result.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
