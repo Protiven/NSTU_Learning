@@ -1,6 +1,4 @@
-﻿// TRY_1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
+﻿#include <stdio.h>
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -41,12 +39,12 @@ int* jg;		    // позиции элементов матрицы
 int   N;			// размерность СЛАУ
 int	  Nx;			// количество по Х				
 int   Ny;			// количество по Y				
-int   maxiter;	    // максимальное количество итераций				
+int   maxiter;	    // максимальное количествто итераций				
 
-int	LU();		    // функция факторизации		 
-void	assembling();	// cборка глобальной матрицы			
-void	GetInfo();	// получение параметов				
-void	ReadGrid();	// чтение сетки	
+int	  LU();		    // функция факторизации		 
+void  assembling();	// cборка глобальной матрицы			
+void  get_info();	// получение параметов				
+void  ReadGrid();	// чтение сетки	
 
 void    AddToMatrix(int, int, REAL);	     // добаление в матрицу				
 REAL    GetLambda(REAL, REAL);		         // коэффициент лямбда				
@@ -54,8 +52,8 @@ REAL    GetGamma(REAL, REAL);		         // коэффициент гамма
 REAL    GetF(REAL, REAL);			         // правая часть		 
 REAL    GetIdeal(REAL, REAL);		         // точное решение		  
 void    GaussL(REAL*, REAL*);		         // Решение СЛАУ		
-void	  GaussU(REAL*, REAL*);		         // Решение СЛАУ		
-void	  MultMatrixOnVector(REAL*, REAL*);	 // Умножение матрицы на вектор		 
+void	GaussU(REAL*, REAL*);		         // Решение СЛАУ		
+void	MultMatrixOnVector(REAL*, REAL*);	 // Умножение матрицы на вектор		 
 REAL    ScalarMult(REAL*, REAL*);			 // Скалярное произведение векторов
 REAL    sum(int, int);	                     // Скалярное произведение факторизации		
 void    method();				             // Сборка метода
@@ -68,17 +66,17 @@ REAL GetLambda(REAL x, REAL y)
 {
 	return 1.;
 }
-REAL GetGamma(REAL x, REAL y) 
+REAL GetGamma(REAL x, REAL y)
 {
-	return 0;
+	return 1.;
 }
-REAL GetF(REAL x, REAL y) // F
+REAL GetF(REAL x, REAL y)
 {
-	return -12 * x * x - 12 * y * y;
+	return x*(x*x - 6) + y*(y*y-6);
 }
-REAL GetIdeal(REAL x, REAL y) // U
+REAL GetIdeal(REAL x, REAL y)
 {
-	return pow(x, 4) + pow(y, 4);
+	return pow(x, 3)+pow(y, 3);
 }
 
 
@@ -86,9 +84,9 @@ void method()
 {
 	int i, k;
 	// Получение информации о задаче
-	global = new double[MEMORY];						// выделение памяти
-	memset(global, 0, MEMORY * sizeof(double));	// заполнение нулями
-	GetInfo();
+	global = new double[MEMORY];			// выделение памяти
+	memset(global, 0, MEMORY * sizeof(double));	// еe зануление
+	get_info();
 
 	// Настройка указателей
 	ig = (int*)global;
@@ -136,7 +134,7 @@ void method()
 	assembling();
 }
 
-void GetInfo()
+void get_info()
 {
 	ifstream file("Area.txt");
 	file >> Nx >> Ny;
@@ -164,16 +162,16 @@ void ReadGrid()
 
 void assembling()
 {
-	int i, k, i1, k1;
+	int		i, k, i1, k1;
 
-	int Index[4];	// номера узлов
-	REAL lambda, gamma, px, y, xp, yp, hx, hy;	// параметры КЭ
-	REAL tmp, hx2, hy2, ud, u1, u2, u3;
+	int		Index[4];	// номера узлов
+	REAL	lambda, gamma, px, y, xp, yp, hx, hy;	// параметры КЭ
+	REAL	tmp, hx2, hy2, ud, u1, u2, u3;
 
-	REAL fv[4];		// значения правой части
-	REAL B[4][4];	// матрица жёсткости
-	REAL C[4][4];	// матрица масс
-	REAL F[4];		// вектор правой части
+	REAL	fv[4];		// значения правой части
+	REAL	B[4][4];	// матрица жёсткости
+	REAL	C[4][4];	// матрица масс
+	REAL	F[4];		// вектор правой части
 
 	// Процедура ассемблирования глобальной матрицы
 	for (k = 0; k < Ny - 1; k++)
@@ -258,15 +256,11 @@ void assembling()
 			C[3][3] = ud;
 
 			//Задаём значения вектора правой части
-			
-			
 			F[0] = C[0][0] * fv[0] + C[0][1] * fv[1] + C[0][2] * fv[2] + C[0][3] * fv[3];
 			F[1] = C[1][0] * fv[0] + C[1][1] * fv[1] + C[1][2] * fv[2] + C[1][3] * fv[3];
 			F[2] = C[2][0] * fv[0] + C[2][1] * fv[1] + C[2][2] * fv[2] + C[2][3] * fv[3];
 			F[3] = C[3][0] * fv[0] + C[3][1] * fv[1] + C[3][2] * fv[2] + C[3][3] * fv[3];
 
-
-			//Сборка глобальной матрицы
 
 			Index[0] = Nx * k + i;
 			Index[1] = Nx * k + i + 1;
@@ -308,7 +302,10 @@ void assembling()
 
 
 
-//	Добавление элементов в матрицу
+
+
+
+//	Добавление элементов в матртцу
 void AddToMatrix(int i, int j, REAL el)
 {
 	int k;
