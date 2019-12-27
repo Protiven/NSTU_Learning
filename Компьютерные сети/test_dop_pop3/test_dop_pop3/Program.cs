@@ -62,11 +62,11 @@ namespace test_dop_pop3
             // Используем using чтобы соединение автоматически закрывалось
             using (OpenPop.Pop3.Pop3Client client = new Pop3Client())
             {
-                Console.WriteLine("Введите имя сервера.");
-                string name_server = Console.ReadLine();
+                Console.Write("Введите имя сервера: ");
+                string name_server = /*"pop.mail.ru";/*/ Console.ReadLine();
 
-                Console.WriteLine("Введите порт (110 или 995).");
-                var port = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введите порт (110 или 995): ");
+                var port = /*995;/*/ Convert.ToInt32(Console.ReadLine());
                 bool usessl = false;
                
                 if (port == 995)
@@ -77,41 +77,37 @@ namespace test_dop_pop3
                 else
                     Environment.Exit(0);
              
-                Console.WriteLine("Введите почту.");
-                string login = Console.ReadLine();
+                Console.Write("Введите почту: ");
+                string login = /*"PM-74.nstu2017@mail.ru";/*/ Console.ReadLine();
 
-                Console.WriteLine("Введите пароль.");
-                string password = Console.ReadLine();
+                Console.Write("Введите пароль: ");
+                string password = /*"student2017";*/ Console.ReadLine();
+
 
                 // Подключение к серверу
-
                 client.Connect(name_server, port, usessl);
-
+                
                 // Аутентификация (проверка логина и пароля)
                 client.Authenticate(login, password, AuthenticationMethod.UsernameAndPassword);
-                client.Connect("cn.ami.nstu.ru", 995, true);
-
-                // Аутентификация (проверка логина и пароля)
-                client.Authenticate("b4@cn.ami.nstu.ru", "Aayu2uon", AuthenticationMethod.UsernameAndPassword);
+       
 
                 if (client.Connected)
                 {
                     var flag = true;
                     for (; flag; )
                     {
-                        Console.WriteLine("Выберите действие:");
-                        Console.WriteLine("1 - выход");
-                        Console.WriteLine("2 - проверить текущее состояние почты");
-                        Console.WriteLine("3 - вывод списка сообщений");
-                        Console.WriteLine("4 - вывод всех сообщений");
-                        Console.WriteLine("5 - прочитать сообщение номер");
-                        Console.WriteLine("6 - проверка состояния");
-                        Console.WriteLine("7 - удалить сообщение номер");
+                        Console.WriteLine("\nВыберите действие:");
+                        Console.WriteLine("1 - выход");              // Работает
+                        Console.WriteLine("2 - проверить текущее состояние почты");       // Работает
+                        Console.WriteLine("3 - вывод списка сообщений");      // Работает
+                        Console.WriteLine("4 - вывод всех сообщений");   // Работает
+                        Console.WriteLine("5 - прочитать сообщение номер");    // Работает
+                        Console.WriteLine("6 - удалить сообщение номер");     // Работает
                         var choice = Convert.ToInt32(Console.ReadLine());
 
                         switch (choice)
                         {
-                            case 1:
+                            case 1:  
                                 flag = false;
                                 client.Disconnect();
                                 break;
@@ -123,24 +119,41 @@ namespace test_dop_pop3
                                     sum += mem1;
                                 Console.WriteLine("Всего {0} сообщений с общим размером {1} байт", count, sum);
                                 break;
-                            case 3: // Дичь полная 
-                                var var1 = client.GetMessageUids();
-                                foreach(var var2 in var1)
-                                    Console.WriteLine(var2);
+                            case 3:
+                                int messageCount = client.GetMessageCount();
+                                List<Message> allMessages = new List<Message>(messageCount);
+
+                                int s = 1;
+                                for (int i = messageCount; i > 0; i--)
+                                {
+                                    Message message = client.GetMessage(i);
+                                    allMessages.Add(message);
+                                    Console.WriteLine("{0}        {1} {2} {3}", i, message.Headers.Subject, message.Headers.From, message.Headers.DateSent);
+                                    s++;
+                                }
                                 break;
                             case 4:
                                 get_all_message(client);
                                 break;
-                            case 5: // Не робит
+                            case 5: 
                                 Console.WriteLine("Номер сообщения.");
                                 var ch = Convert.ToInt32(Console.ReadLine());
-                                var bytes = client.GetMessageAsBytes(ch);
-                                Console.WriteLine(Convert.ToString(bytes));
+                                var bytes = client.GetMessage(ch);
+
+                                string subject = bytes.Headers.Subject + '\n'; //заголовок
+
+                                var help_val = bytes.FindFirstPlainTextVersion();
+                                string text_mes = "";
+                                if (help_val != null)
+                                    text_mes = help_val.GetBodyAsText() + '\n';
+                                string date = bytes.Headers.Date.ToString() + '\n'; //Дата/Время
+                                string from = bytes.Headers.From.ToString() + '\n'; //от кого
+
+                                string text = subject + text_mes + date + from;
+
+                                Console.WriteLine(text);
                                 break;
                             case 6:
-                                client.NoOperation();
-                                break;
-                            case 7:
                                 Console.WriteLine("Номер сообщения.");
                                 var ch1 = Convert.ToInt32(Console.ReadLine());
                                 client.DeleteMessage(ch1);
