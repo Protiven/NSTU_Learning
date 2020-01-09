@@ -25,7 +25,8 @@ def plot_curve(x, y):
     string_y = f2.read()
     x_ = string_x.split(' ')
     y_ = string_y.split(' ')
-    plt.plot(x_, y_)
+    plt.plot(x_,y_)
+
 
 
 
@@ -66,7 +67,7 @@ def plot_function():
     x = np.arange(X_min, X_max, dx)
 
     # Сама функция
-    y= x * x + 1
+    y= x * x
     plt.plot(x, y)
 
 
@@ -74,7 +75,10 @@ def plot_function():
 def main():
     
     plt.axis([X_min, X_max, Y_min, Y_max])
+    X_array = np.arange(X_min, X_max + 0.01, 1)
+    Y_array = np.arange(Y_min, Y_max + 0.01, 1)
 
+    plt.plot(X_array, Y_array)
     plt.xlabel('X')
     plt.ylabel('Y')
     plt.title('GRAPH')
@@ -82,11 +86,12 @@ def main():
 
 ####  
 
-plot_curve('curve_x.txt', 'curve_y.txt')
-plot_circle('circle_info.txt')
+#plot_curve('curve_x.txt', 'curve_y.txt')
+main()
+#plot_circle('circle_info.txt')
 
 plot_gradient()
 plot_function()
-main()
+
 plt.show()
 ####
