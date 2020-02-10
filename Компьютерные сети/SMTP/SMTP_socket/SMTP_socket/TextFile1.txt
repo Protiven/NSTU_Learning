@@ -2,63 +2,32 @@ import sys
 import socket
 
 
-print("Р’РІРµРґРёС‚Рµ РёРјСЏ СЃРµСЂРІРµСЂР°: ")
-#host = input()
-print("Р’РІРµРґРёС‚Рµ РїРѕСЂС‚ СЃРµСЂРІРµСЂР° (465, 25, 587): ")
-#port = int(input())
-
-# smtp.ngs.ru      
-host = "smtp.ngs.ru"  
-port = 25
-flag = True
+print("Введите имя сервера: ")
+host = input()
+print("Введите порт сервера (465, 25, 587): ")
+port = int(input())
+       
        
 client = socket.socket()
 client.connect((host, port))
 
 data = client.recv(1024)
-print("server: %s" % data.decode())
-
-#print("Server:%s" % data.decode('utf-8'))
-
-str = "EHLO smtp.ngs.ru \r\n"
-client.send(str.encode())
-response = client.recv(1024)
-print("server: %s" % response.decode())
-
-
-
+"""print("Server:%s" % data.decode('utf-8'))
+"""
 
 if int(data[:3]) != 220:
-    print("РћС€РёР±РєР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ!")
+    print("Ошибка подключения!")
 else:
-    print("РЈСЃРїРµС€РЅРѕРµ РїРѕРґРєР»СЋС‡РµРЅРёРµ!")
-    while flag:
-        print("Р’РІРµРґРёС‚Рµ РєРѕРјР°РЅРґСѓ!")
-        str = input() + " \r\n"
-        client.send(str.encode())
-        response = client.recv(1024)
-        print("server: %s" % response.decode())
-
-"""       
-message = 'FROM: b4@cn.ami.nstu.ru\r\n' + \
-'TO: b10@cn.ami.nstu.ru\r\n' + \
-'SUBJECT: Test message\r\n'
-client.send(message.encode())
-response = client.recv(1024)
-client.send('This is a test message!\r\n'.encode())
-response = client.recv(1024)
-print("server: %s" % response.decode())
-        
-flag = False
+    print("Успешное подключение!")
 
 
-
+"""
 if int(data[:3]) != 220:
-print("РћС€РёР±РєР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ!")
+print("Ошибка подключения!")
 else:
-print("Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ: ")
+print("Введите логин: ")
 #login = input()
-print("Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ: ")
+print("Введите пароль: ")
 #password = input()
 
 login = 'PM-74.nstu2017@mail.ru'
@@ -72,7 +41,7 @@ client.send(str.encode())
 data = client.recv(1024)
 print("Server:%s" % data.decode('utf-8'))
 
-print("РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ STARTTLS? 1 - Yes,'another' - No")
+print("Использовать STARTTLS? 1 - Yes,'another' - No")
 choice = int(input())
 if choice == 1:
 str = "STARTTLS"
@@ -87,17 +56,17 @@ else:
     sys.exit()
 flag = True
 while flag:
-print("Р’РІРµРґРёС‚Рµ РєРѕРјР°РЅРґСѓ:")
+print("Введите команду:")
 choice = input()
 if choice == "QUIT":
 client.close()
 flag = False
 elif choice == "MAIL":
-print("РЈРєР°Р¶РёС‚Рµ РїРѕС‡С‚Сѓ РїРѕР»СѓС‡Р°С‚РµР»СЏ: ")
+print("Укажите почту получателя: ")
 receiver = input()
-print("Р’РІРµРґРёС‚Рµ Р·Р°РіРѕР»РѕРІРѕРє РїРёСЃСЊРјР°: ")
+print("Введите заголовок письма: ")
 subject = input()
-print("Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚ РїРёСЃСЊРјР°: ")
+print("Введите текст письма: ")
 text = input()
 
 message = "Subject: " + subject + "\n\n" + text       
