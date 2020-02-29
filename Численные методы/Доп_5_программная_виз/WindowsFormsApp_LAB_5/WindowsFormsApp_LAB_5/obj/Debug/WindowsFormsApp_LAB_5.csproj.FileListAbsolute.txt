@@ -1,9 +1,0 @@
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Доп_5_программная_виз\WindowsFormsApp_LAB_5\WindowsFormsApp_LAB_5\bin\Debug\WindowsFormsApp_LAB_5.exe.config
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Доп_5_программная_виз\WindowsFormsApp_LAB_5\WindowsFormsApp_LAB_5\bin\Debug\WindowsFormsApp_LAB_5.exe
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Доп_5_программная_виз\WindowsFormsApp_LAB_5\WindowsFormsApp_LAB_5\bin\Debug\WindowsFormsApp_LAB_5.pdb
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Доп_5_программная_виз\WindowsFormsApp_LAB_5\WindowsFormsApp_LAB_5\obj\Debug\WindowsFormsApp_LAB_5.csprojAssemblyReference.cache
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Доп_5_программная_виз\WindowsFormsApp_LAB_5\WindowsFormsApp_LAB_5\obj\Debug\WindowsFormsApp_LAB_5.Form1.resources
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Доп_5_программная_виз\WindowsFormsApp_LAB_5\WindowsFormsApp_LAB_5\obj\Debug\WindowsFormsApp_LAB_5.Properties.Resources.resources
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Доп_5_программная_виз\WindowsFormsApp_LAB_5\WindowsFormsApp_LAB_5\obj\Debug\WindowsFormsApp_LAB_5.csproj.GenerateResource.cache
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Доп_5_программная_виз\WindowsFormsApp_LAB_5\WindowsFormsApp_LAB_5\obj\Debug\WindowsFormsApp_LAB_5.exe
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Численные методы\Доп_5_программная_виз\WindowsFormsApp_LAB_5\WindowsFormsApp_LAB_5\obj\Debug\WindowsFormsApp_LAB_5.pdb

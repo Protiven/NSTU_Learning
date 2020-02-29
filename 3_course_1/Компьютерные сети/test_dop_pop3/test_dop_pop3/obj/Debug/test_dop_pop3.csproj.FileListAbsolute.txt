@@ -1,0 +1,16 @@
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\obj\Debug\test_dop_pop3.csprojAssemblyReference.cache
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\bin\Debug\test_dop_pop3.exe.config
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\bin\Debug\test_dop_pop3.exe
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\bin\Debug\test_dop_pop3.pdb
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\bin\Debug\OpenPop.dll
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\obj\Debug\test_dop_pop3.csproj.CopyComplete
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\obj\Debug\test_dop_pop3.exe
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\obj\Debug\test_dop_pop3.pdb
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\bin\Debug\test_dop_pop3.exe.config
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\bin\Debug\test_dop_pop3.exe
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\bin\Debug\test_dop_pop3.pdb
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\bin\Debug\OpenPop.dll
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\obj\Debug\test_dop_pop3.csprojAssemblyReference.cache
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\obj\Debug\test_dop_pop3.csproj.CopyComplete
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\obj\Debug\test_dop_pop3.exe
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\test_dop_pop3\test_dop_pop3\obj\Debug\test_dop_pop3.pdb

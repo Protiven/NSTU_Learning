@@ -1,0 +1,12 @@
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\SMTP_C_SHARP\SMTP_C_SHARP\bin\Debug\SMTP_C_SHARP.exe.config
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\SMTP_C_SHARP\SMTP_C_SHARP\bin\Debug\SMTP_C_SHARP.exe
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\SMTP_C_SHARP\SMTP_C_SHARP\bin\Debug\SMTP_C_SHARP.pdb
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\SMTP_C_SHARP\SMTP_C_SHARP\obj\Debug\SMTP_C_SHARP.csprojAssemblyReference.cache
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\SMTP_C_SHARP\SMTP_C_SHARP\obj\Debug\SMTP_C_SHARP.exe
+C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\SMTP_C_SHARP\SMTP_C_SHARP\obj\Debug\SMTP_C_SHARP.pdb
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\SMTP_C_SHARP\SMTP_C_SHARP\bin\Debug\SMTP_C_SHARP.exe.config
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\SMTP_C_SHARP\SMTP_C_SHARP\bin\Debug\SMTP_C_SHARP.exe
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\SMTP_C_SHARP\SMTP_C_SHARP\bin\Debug\SMTP_C_SHARP.pdb
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\SMTP_C_SHARP\SMTP_C_SHARP\obj\Debug\SMTP_C_SHARP.csprojAssemblyReference.cache
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\SMTP_C_SHARP\SMTP_C_SHARP\obj\Debug\SMTP_C_SHARP.exe
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\Компьютерные сети\SMTP_C_SHARP\SMTP_C_SHARP\obj\Debug\SMTP_C_SHARP.pdb

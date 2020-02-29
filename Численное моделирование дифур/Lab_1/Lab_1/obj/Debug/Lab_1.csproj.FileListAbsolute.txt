@@ -1,7 +1,0 @@
-C:\Users\Марина\source\repos\Численное моделирование дифур\Lab_1\Lab_1\bin\Debug\Lab_1.exe.config
-C:\Users\Марина\source\repos\Численное моделирование дифур\Lab_1\Lab_1\bin\Debug\Lab_1.exe
-C:\Users\Марина\source\repos\Численное моделирование дифур\Lab_1\Lab_1\bin\Debug\Lab_1.pdb
-C:\Users\Марина\source\repos\Численное моделирование дифур\Lab_1\Lab_1\obj\Debug\Lab_1.csprojAssemblyReference.cache
-C:\Users\Марина\source\repos\Численное моделирование дифур\Lab_1\Lab_1\obj\Debug\Lab_1.csproj.CoreCompileInputs.cache
-C:\Users\Марина\source\repos\Численное моделирование дифур\Lab_1\Lab_1\obj\Debug\Lab_1.exe
-C:\Users\Марина\source\repos\Численное моделирование дифур\Lab_1\Lab_1\obj\Debug\Lab_1.pdb

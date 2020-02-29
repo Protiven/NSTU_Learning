@@ -1,6 +1,0 @@
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\2\Lab_2\Lab_2\obj\Debug\Lab_2.csprojAssemblyReference.cache
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\2\Lab_2\Lab_2\bin\Debug\Lab_2.exe.config
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\2\Lab_2\Lab_2\bin\Debug\Lab_2.exe
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\2\Lab_2\Lab_2\bin\Debug\Lab_2.pdb
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\2\Lab_2\Lab_2\obj\Debug\Lab_2.exe
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Криптография\2\Lab_2\Lab_2\obj\Debug\Lab_2.pdb

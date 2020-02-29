@@ -1,4 +1,0 @@
-﻿  Actual_program.cpp
-cl : командная строка warning D9025: переопределение "/sdl" на "/GS-"
-C:\Users\Слава\Documents\GitHub\NSTU_Learning\Структуры данных и алгоритмы (курсач)\Actual_program\Actual_program\Actual_program.cpp(90,23): warning C4018: <: несоответствие типов со знаком и без знака
-  Actual_program.vcxproj -> C:\Users\Слава\Documents\GitHub\NSTU_Learning\Структуры данных и алгоритмы (курсач)\Actual_program\Debug\Actual_program.exe

@@ -1,9 +1,0 @@
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\CLIENT\CLIENT\bin\Release\CLIENT.exe.config
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\CLIENT\CLIENT\bin\Release\CLIENT.exe
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\CLIENT\CLIENT\bin\Release\CLIENT.pdb
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\CLIENT\CLIENT\obj\Release\CLIENT.Form1.resources
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\CLIENT\CLIENT\obj\Release\CLIENT.Properties.Resources.resources
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\CLIENT\CLIENT\obj\Release\CLIENT.csproj.GenerateResource.cache
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\CLIENT\CLIENT\obj\Release\CLIENT.exe
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\CLIENT\CLIENT\obj\Release\CLIENT.pdb
-C:\Users\Марина\Documents\GitHub\NSTU_Learning\Компьютерные сети\Лаба3\CLIENT\CLIENT\obj\Release\CLIENT.csprojAssemblyReference.cache

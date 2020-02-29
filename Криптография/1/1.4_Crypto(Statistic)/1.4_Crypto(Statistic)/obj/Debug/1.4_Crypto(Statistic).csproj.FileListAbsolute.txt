@@ -1,7 +1,0 @@
-C:\Users\Марина\source\repos\1.4_Crypto(Statistic)\1.4_Crypto(Statistic)\bin\Debug\1.4_Crypto(Statistic).exe.config
-C:\Users\Марина\source\repos\1.4_Crypto(Statistic)\1.4_Crypto(Statistic)\bin\Debug\1.4_Crypto(Statistic).exe
-C:\Users\Марина\source\repos\1.4_Crypto(Statistic)\1.4_Crypto(Statistic)\bin\Debug\1.4_Crypto(Statistic).pdb
-C:\Users\Марина\source\repos\1.4_Crypto(Statistic)\1.4_Crypto(Statistic)\obj\Debug\1.4_Crypto(Statistic).csprojAssemblyReference.cache
-C:\Users\Марина\source\repos\1.4_Crypto(Statistic)\1.4_Crypto(Statistic)\obj\Debug\1.4_Crypto(Statistic).csproj.CoreCompileInputs.cache
-C:\Users\Марина\source\repos\1.4_Crypto(Statistic)\1.4_Crypto(Statistic)\obj\Debug\1.4_Crypto(Statistic).exe
-C:\Users\Марина\source\repos\1.4_Crypto(Statistic)\1.4_Crypto(Statistic)\obj\Debug\1.4_Crypto(Statistic).pdb
