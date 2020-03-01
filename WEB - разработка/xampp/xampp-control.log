@@ -392,3 +392,79 @@
 14:35:50  [main] 	Deinitializing Modules
 14:35:50  [main] 	Deinitializing Control Panel
 
+0:11:46  [main] 	Initializing Control Panel
+0:11:46  [main] 	Windows Version:  Home  64-bit
+0:11:46  [main] 	XAMPP Version: 7.1.32
+0:11:46  [main] 	Control Panel Version: 3.2.4  [ Compiled: Jun 5th 2019 ]
+0:11:46  [main] 	You are not running with administrator rights! This will work for
+0:11:46  [main] 	most application stuff but whenever you do something with services
+0:11:46  [main] 	there will be a security dialogue or things will break! So think 
+0:11:46  [main] 	about running this application with administrator rights!
+0:11:46  [main] 	XAMPP Installation Directory: "c:\users\Марина\documents\github\nstu_learning\web - разработка\xampp\"
+0:11:46  [main] 	WARNING: Your install directory contains spaces.  This may break programs/scripts
+0:11:46  [main] 	Checking for prerequisites
+0:11:46  [main] 	All prerequisites found
+0:11:46  [main] 	Initializing Modules
+0:11:46  [Apache] 	Problem detected!
+0:11:46  [Apache] 	Port 443 in use by ""C:\Program Files (x86)\VMware\VMware Workstation\vmware-hostd.exe" -u "C:\ProgramData\VMware\hostd\config.xml"" with PID 404!
+0:11:46  [Apache] 	Apache WILL NOT start without the configured ports free!
+0:11:46  [Apache] 	You need to uninstall/disable/reconfigure the blocking application
+0:11:46  [Apache] 	or reconfigure Apache and the Control Panel to listen on a different port
+0:11:46  [main] 	Starting Check-Timer
+0:11:46  [main] 	Control Panel Ready
+0:11:48  [Apache] 	Problem detected!
+0:11:48  [Apache] 	Port 443 in use by ""C:\Program Files (x86)\VMware\VMware Workstation\vmware-hostd.exe" -u "C:\ProgramData\VMware\hostd\config.xml"" with PID 404!
+0:11:48  [Apache] 	Apache WILL NOT start without the configured ports free!
+0:11:48  [Apache] 	You need to uninstall/disable/reconfigure the blocking application
+0:11:48  [Apache] 	or reconfigure Apache and the Control Panel to listen on a different port
+0:11:48  [Apache] 	Attempting to start Apache app...
+0:11:48  [Apache] 	Status change detected: running
+0:11:48  [mysql] 	Attempting to start MySQL app...
+0:11:49  [mysql] 	Status change detected: running
+0:11:50  [Apache] 	Status change detected: stopped
+0:11:50  [Apache] 	Error: Apache shutdown unexpectedly.
+0:11:50  [Apache] 	This may be due to a blocked port, missing dependencies, 
+0:11:50  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+0:11:50  [Apache] 	Press the Logs button to view error logs and check
+0:11:50  [Apache] 	the Windows Event Viewer for more clues
+0:11:50  [Apache] 	If you need more help, copy and post this
+0:11:50  [Apache] 	entire log window on the forums
+0:12:02  [mysql] 	Attempting to stop MySQL app...
+0:12:02  [mysql] 	Status change detected: stopped
+0:12:03  [Apache] 	Problem detected!
+0:12:03  [Apache] 	Port 443 in use by ""C:\Program Files (x86)\VMware\VMware Workstation\vmware-hostd.exe" -u "C:\ProgramData\VMware\hostd\config.xml"" with PID 404!
+0:12:03  [Apache] 	Apache WILL NOT start without the configured ports free!
+0:12:03  [Apache] 	You need to uninstall/disable/reconfigure the blocking application
+0:12:03  [Apache] 	or reconfigure Apache and the Control Panel to listen on a different port
+0:12:03  [Apache] 	Attempting to start Apache app...
+0:12:03  [Apache] 	Status change detected: running
+0:12:04  [mysql] 	Attempting to start MySQL app...
+0:12:04  [Apache] 	Status change detected: stopped
+0:12:05  [Apache] 	Error: Apache shutdown unexpectedly.
+0:12:05  [Apache] 	This may be due to a blocked port, missing dependencies, 
+0:12:05  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+0:12:05  [Apache] 	Press the Logs button to view error logs and check
+0:12:05  [Apache] 	the Windows Event Viewer for more clues
+0:12:05  [Apache] 	If you need more help, copy and post this
+0:12:05  [Apache] 	entire log window on the forums
+0:12:05  [mysql] 	Status change detected: running
+0:12:06  [Apache] 	Problem detected!
+0:12:06  [Apache] 	Port 443 in use by ""C:\Program Files (x86)\VMware\VMware Workstation\vmware-hostd.exe" -u "C:\ProgramData\VMware\hostd\config.xml"" with PID 404!
+0:12:06  [Apache] 	Apache WILL NOT start without the configured ports free!
+0:12:06  [Apache] 	You need to uninstall/disable/reconfigure the blocking application
+0:12:06  [Apache] 	or reconfigure Apache and the Control Panel to listen on a different port
+0:12:06  [Apache] 	Attempting to start Apache app...
+0:12:06  [Apache] 	Status change detected: running
+0:12:07  [Apache] 	Status change detected: stopped
+0:12:08  [Apache] 	Error: Apache shutdown unexpectedly.
+0:12:08  [Apache] 	This may be due to a blocked port, missing dependencies, 
+0:12:08  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+0:12:08  [Apache] 	Press the Logs button to view error logs and check
+0:12:08  [Apache] 	the Windows Event Viewer for more clues
+0:12:08  [Apache] 	If you need more help, copy and post this
+0:12:08  [Apache] 	entire log window on the forums
+0:14:15  [mysql] 	Attempting to stop MySQL app...
+0:14:15  [mysql] 	Status change detected: stopped
+0:14:17  [main] 	Deinitializing Modules
+0:14:17  [main] 	Deinitializing Control Panel
+
