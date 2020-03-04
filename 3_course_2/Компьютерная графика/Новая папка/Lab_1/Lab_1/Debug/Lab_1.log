@@ -1,0 +1,5 @@
+﻿  Lab_1.cpp
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\3_course_2\Компьютерная графика\Новая папка\Lab_1\Lab_1\Lab_1.cpp(38,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\3_course_2\Компьютерная графика\Новая папка\Lab_1\Lab_1\Lab_1.cpp(79,1): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : см. объявление "sprintf"
+C:\Users\Слава\Documents\GitHub\NSTU_Learning\3_course_2\Компьютерная графика\Новая папка\Lab_1\Lab_1\Lab_1.cpp(149,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
