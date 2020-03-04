@@ -10,6 +10,16 @@ namespace SMTP_C_SHARP
 {
     class Program
     {
+        static string Trim_bytes(byte[] rec)
+        {
+            int k = 0;
+            for (int i = rec.Length - 1; rec[i] == 0 && i >= 0; i--)
+                k = i;
+
+            string str_rec = Encoding.UTF8.GetString(rec, 0, k);
+            return str_rec;
+        }
+
         static void Main(string[] args)
         {
             var rec = new byte[512];
@@ -18,8 +28,12 @@ namespace SMTP_C_SHARP
             string hostname = Console.ReadLine();
             if (hostname == "QUIT" || hostname == "quit")
                 Environment.Exit(0);
+           
             Console.WriteLine("Введите port: ");
-            int port = Convert.ToInt32(Console.ReadLine());
+            var h = Console.ReadLine();
+            if (h == "QUIT" || h == "quit")
+                Environment.Exit(0);
+            int port = Convert.ToInt32(h);
             
 
             var client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -36,7 +50,7 @@ namespace SMTP_C_SHARP
             }
             client.Receive(rec);
 
-            string str_rec = Encoding.UTF8.GetString(rec);
+            string str_rec = Trim_bytes(rec);
             Console.WriteLine("Server: " + str_rec);
 
             string str_req;
@@ -45,6 +59,7 @@ namespace SMTP_C_SHARP
             {
                 try
                 {
+                    string help1;
                     Console.Write("Client: ");
                     var help = Console.ReadLine();
                     if (help == "QUIT" || help == "quit")
@@ -52,10 +67,27 @@ namespace SMTP_C_SHARP
 
                     str_req = help + " \r\n";
                     client.Send(Encoding.UTF8.GetBytes(str_req));
-
                     client.Receive(rec);
-                    str_rec = Encoding.UTF8.GetString(rec);
+                    str_rec = Trim_bytes(rec);
                     Console.WriteLine("Server: " + str_rec);
+
+                    if (help == "DATA" || help == "data")
+                    {
+                        do
+                        {
+                            Console.Write("Client: ");
+                            help1 = Console.ReadLine();
+                            if (help1 != ".")
+                                str_req = help1 + " \r\n";
+                            else
+                                str_req = help1 + "\r\n";
+                            client.Send(Encoding.UTF8.GetBytes(str_req));
+                        } while (help1 != ".");
+                        client.Receive(rec);
+                        str_rec = Trim_bytes(rec);
+                        Console.WriteLine("Server: " + str_rec);
+                    }
+
                 }
                 catch (Exception ex)
                 {
